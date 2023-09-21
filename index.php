@@ -27,10 +27,10 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <link href='./dist/output.css' rel='stylesheet'> 
     <link rel="stylesheet" href="./assets/plugin/select2.min.css" />
 </head>
-<body class='h-[100dvh] relative bg-blue-300'>
+<body class='h-[100dvh] relative'>
 <!-- <body class='relative bg-contentBgBlue bg-opacity-95'> -->
     <!-- NAV -->
-    <div class='w-full h-16 bg-green-100 py-3 flex justify-evenly'>
+    <!-- <div class='w-full h-16 bg-green-100 py-3 flex justify-evenly'>
         <div class='w-[1280px] flex justify-between'>
             <div class='nav_top bg-green-100 flex'>
                 <img src='./assets/images/logo.png' class='w-12 h-12'>
@@ -56,7 +56,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class='h-[calc(100%-4rem)] pt-3 relative flex flex-col justify-center'>
         <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div>
         <!-- 顯示畫面 -->
