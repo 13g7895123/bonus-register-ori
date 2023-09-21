@@ -1,6 +1,8 @@
 // $('#bg').css('background');
 url_param()
 
+alert(123)
+
 const url_param = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const sid = urlParams.get('sid')

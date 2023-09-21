@@ -3,7 +3,7 @@
 include_once(__DIR__ . '/__Class/ClassLoad.php');
 
 // 檢查是否登入
-BasicWork::login_check('mi_id', './Pages/login.php');
+// BasicWork::login_check('mi_id', './Pages/login.php');
 
 // ajax安全性驗證:產生token
 // $_SESSION['form_token'] = Form_token_Core::grante_token();
