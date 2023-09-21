@@ -1,0 +1,50 @@
+/* .data_group{
+    margin-top: 1rem;
+}
+.data_group input:focus ~ label {
+    font-size: 0.75rem;
+    top: -0.5rem;
+    left: 0;
+    color: #ccc;
+}
+
+input:valid + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: #ccc;
+  } */
+
+  /* .data_group {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  input {
+    font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    width: 100%;
+  }
+  
+  input:focus + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: #ccc;
+  }
+  
+  label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    color: #888;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input:valid + label {
+    top: 0;
+    font-size: 0.8rem;
+    color: #ccc;
+  } */
