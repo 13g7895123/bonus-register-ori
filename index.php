@@ -9,7 +9,7 @@ BasicWork::login_check('mi_id', './Pages/login.php');
 // $_SESSION['form_token'] = Form_token_Core::grante_token();
 
 //指定頁面
-$NOW_Page = 'table_query_sales'; //預設頁面
+$NOW_Page = 'phone'; //預設頁面
 //檢查PageName參數與檔案是否存在
 if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page') . '.php')) {
     $NOW_Page = BaseWork::_get('page'); //帶入目前PageName
