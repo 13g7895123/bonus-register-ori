@@ -27,7 +27,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <link href='./dist/output.css' rel='stylesheet'> 
     <link rel="stylesheet" href="./assets/plugin/select2.min.css" />
 </head>
-<body class='h-[100dvh] relative'>
+<body class='h-[100dvh] relative bg-slate-800'>
 <!-- <body class='relative bg-contentBgBlue bg-opacity-95'> -->
     <!-- NAV -->
     <!-- <div class='w-full h-16 bg-green-100 py-3 flex justify-evenly'>
@@ -46,11 +46,6 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
                 <a href='?page=member_center' class='nav_item relative group'>
                     <span class='whitespace-nowrap absolute left-1/2 -translate-x-1/2 tracking-6 animate-1 group-hover:border-b-2 group-hover:border-slate-500'>會員中心</span>
                 </a>
-                <!-- <a href='?page=table_inquire_sales' class='nav_item relative group animate-5'> -->
-                    <!-- <label class='w-1/2 h-full bg-red-500 pl-3 cursor-pointer group-hover:bg-white animate-5'></label> -->
-                    <!-- <span class='whitespace-nowrap absolute left-1/2 -translate-x-1/2 tracking-6'>查詢拍賣</span> -->
-                    <!-- <label class='w-1/2 h-full bg-white pr-3 cursor-pointer group-hover:bg-red-300 animate-5'></label> -->
-                <!-- </a>         -->
                 <a href='./Pages/logout.php' class='mr-0 flex justify-end'>
                     <div class='py-1 px-3 border-2 border-black rounded-lg hover:bg-white hover:text-blue-600 hover:border-blue-600 cursor-pointer animate-3'>登出</div>
                 </a>
