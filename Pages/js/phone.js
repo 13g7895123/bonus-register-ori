@@ -1,0 +1,1 @@
+// $('#bg').css('background');
