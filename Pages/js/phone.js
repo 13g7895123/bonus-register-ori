@@ -17,7 +17,9 @@ function api (data){
     $.ajax({
         type: "post",
         url: '/../../api/common.php?action=server_name',
-        data: data,
+        data: {
+            server: data,
+        },
         dataType: "JSON",
         success: function (response) {
             
