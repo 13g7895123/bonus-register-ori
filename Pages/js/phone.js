@@ -1,10 +1,12 @@
 
 const server_id = url_param()
 const server_text = get_server_name(server_id)
+console.log(server_text);
 
 function url_param() {
     const urlParams = new URLSearchParams(window.location.search);
-    return sid = urlParams.get('sid')
+    const sid = urlParams.get('sid')
+    return sid
 }
 
 const get_server_name = (data) => {
