@@ -9,11 +9,11 @@ function url_param() {
     return sid
 }
 
-const get_server_name = (data) => {
+function get_server_name (data){
     api(data)
 }
 
-const api = (data) => {
+function api (data){
     $.ajax({
         type: "post",
         url: '/../../api/common.php?action=server_name',
