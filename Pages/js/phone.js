@@ -14,9 +14,9 @@ const get_server_name = (data) => {
 const api = (data) => {
     $.ajax({
         type: "post",
-        url: './../../api/common.php?action=server_name',
+        url: '/../../api/common.php?action=server_name',
         data: data,
-        dataType: "dataType",
+        dataType: "JSON",
         success: function (response) {
             
         }
