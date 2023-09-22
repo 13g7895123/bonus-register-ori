@@ -9,18 +9,18 @@ if (isset($_GET['action'])){
     switch($_GET['action']){
         case 'server_name':
             // 取得 POST DATA
-            $json_data = file_get_contents('php://input');  // string
-            $post_data = json_decode($json_data, true);     // string轉array
-
-            echo json_encode($_POST);
-            die();
+            /* vue版本
+             * $json_data = file_get_contents('php://input');  // string
+             * $post_data = json_decode($json_data, true);     // string轉array
+             * End vue版本
+             */ 
+            $post_data = $_POST;
 
             if (isset($post_data['server'])){
                 $server = $post_data['server'];
             }
 
             if ($server != ''){
-                
                 MYPDO::$table = 'server';
                 MYPDO::$where = [
                     'code_name' => $server,
