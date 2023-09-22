@@ -4,8 +4,8 @@ include_once(__DIR__ . '/../__Class/ClassLoad.php');
 error_reporting(E_ERROR | E_PARSE);
 
 // DB
-// MYPDO::$host = '139.162.15.125';
-MYPDO::$host = '127.0.0.1';
+MYPDO::$host = '139.162.15.125';
+// MYPDO::$host = '127.0.0.1';
 MYPDO::$port = '3306';
 MYPDO::$db = 'db_bonus_register';
 MYPDO::$user = 'bonus_register_remote';
