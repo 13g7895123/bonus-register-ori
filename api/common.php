@@ -12,7 +12,7 @@ if (isset($_GET['action'])){
             $json_data = file_get_contents('php://input');  // string
             $post_data = json_decode($json_data, true);     // string轉array
 
-            echo $_POST;
+            echo json_encode($_POST);
             die();
 
             if (isset($post_data['server'])){
