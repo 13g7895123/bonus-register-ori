@@ -19,6 +19,6 @@ MYPDO::$pwd = '820820';
     'c2' => 2,
     '3' => 3,
  ];
- MYPDO::insert();
+//  MYPDO::insert();
 
 ?>
