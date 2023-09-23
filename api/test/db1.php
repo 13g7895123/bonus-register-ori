@@ -14,11 +14,8 @@ MYPDO::$user = 'db_user';
 MYPDO::$pwd = '820820';
 
  MYPDO::$table = 'test1';
- MYPDO::$data = [
-    'c1' => 1,
-    'c2' => 2,
-    '3' => 3,
- ];
- MYPDO::save();
+ $results = MYPDO::select();
+
+ echo json_encode($results);
 
 ?>
