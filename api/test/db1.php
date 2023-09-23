@@ -8,6 +8,7 @@
  include_once(__DIR__.'/../../__Class/ClassLoad.php');
 
 echo __DIR__.'/../../__Class/ClassLoad.php';
+echo  MYPDO::$host;
 die();
 
  MYPDO::$host = '139.162.15.125';
