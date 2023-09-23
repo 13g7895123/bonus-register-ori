@@ -10,9 +10,6 @@ MYPDO::$db = 'register-db';
 MYPDO::$user = 'register_user';
 MYPDO::$pwd = '5mu8nd5m';
 
-echo MYPDO::$user;
-die();
-
 error_reporting(E_ERROR | E_PARSE);
 
 if (isset($_GET['action'])){
