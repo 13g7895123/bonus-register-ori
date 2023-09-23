@@ -5,11 +5,10 @@ error_reporting(E_ERROR | E_PARSE);
 
 // DB
 MYPDO::$host = '139.162.15.125';
-// MYPDO::$host = '127.0.0.1';
-MYPDO::$port = '3306';
-MYPDO::$db = 'db_bonus_register';
-MYPDO::$user = 'bonus_register_remote';
-MYPDO::$pwd = '820820';
+MYPDO::$port = '9901';
+MYPDO::$db = 'register-db';
+MYPDO::$user = 'register_user';
+MYPDO::$pwd = '5mu8nd5m';
 
 // CORS
 // $url_arr = ['http://170.187.229.132:9055/'];
