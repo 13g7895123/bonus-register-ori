@@ -5,10 +5,9 @@
  * 
  */
 
-echo 123;
-die();
-
  include_once('../../__Class/ClassLoad.php');
+
+ die();
 
  MYPDO::$host = '139.162.15.125';
  MYPDO::$port = '8098';
