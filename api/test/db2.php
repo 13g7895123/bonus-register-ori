@@ -15,7 +15,7 @@ MYPDO::$db = 'test_db_2';
 MYPDO::$user = 'db_user_2';
 MYPDO::$pwd = '8208202';
 
- MYPDO::$table = 'test1';
+ MYPDO::$table = 'test2';
  MYPDO::$data = [
     'c1' => '3',
     'c2' => '3',
