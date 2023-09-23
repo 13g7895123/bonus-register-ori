@@ -21,9 +21,9 @@ MYPDO::$pwd = 'termit0035';
     'c2' => '2',
     'c3' => '3',
  ];
- MYPDO::$where = ['id' => '1'];
- MYPDO::save();
-//  $results = MYPDO::select();
+//  MYPDO::$where = ['id' => '1'];
+//  MYPDO::save();
+ $results = MYPDO::select();
 
  echo json_encode($results);
 
