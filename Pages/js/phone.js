@@ -22,7 +22,9 @@ function api (data){
         },
         dataType: "JSON",
         success: function (response) {
+            console.log(response);
             if (response.success){
+                console.log(response);
                 $('#server_name').text(response.data.name)
                 $('#bg').css('background', response.data.bg)
             }
