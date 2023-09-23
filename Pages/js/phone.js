@@ -22,7 +22,10 @@ function api (data){
         },
         dataType: "JSON",
         success: function (response) {
-            
+            if (response.success){
+                $('#server_name').text(response.data.name)
+                $('#bg').css('background', response.data.bg)
+            }
         }
     });
 }
