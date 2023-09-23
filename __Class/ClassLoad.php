@@ -1,6 +1,6 @@
 <?php
 //網頁初始引入檔
-include_once(__DIR__ . '/../config/config.php');
+include_once(__DIR__ . '/config/config.php');
 include_once(__DIR__ . '/pdo.php');
 include_once(__DIR__ . '/Works.php');
 include_once(__DIR__ . '/work.php');
