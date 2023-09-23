@@ -3,6 +3,13 @@ include_once(__DIR__ . '/../__Class/ClassLoad.php');
 include_once('config.php');
 include_once('./tools.php');
 
+// DB
+MYPDO::$host = '139.162.15.125';
+MYPDO::$port = '9901';
+MYPDO::$db = 'register-db';
+MYPDO::$user = 'register_user';
+MYPDO::$pwd = '5mu8nd5m';
+
 echo MYPDO::$user;
 die();
 
