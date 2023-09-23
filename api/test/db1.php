@@ -19,7 +19,7 @@ MYPDO::$pwd = 'termit0035';
  MYPDO::$data = [
     'c1' => '3',
     'c2' => '3',
-    'c3' => '3',
+    'C3' => '3',
  ];
 //  MYPDO::$where = ['id' => '1'];
  $results = MYPDO::insert();
