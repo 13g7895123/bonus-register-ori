@@ -10,8 +10,6 @@ include_once(__DIR__.'/../../__Class/ClassLoad.php');
 MYPDO::$host = '139.162.15.125';
 MYPDO::$port = '8096';
 MYPDO::$db = 'test_db_2';
-// MYPDO::$user = 'root';
-// MYPDO::$pwd = 'termit0035';
 MYPDO::$user = 'db_user_2';
 MYPDO::$pwd = '8208202';
 
