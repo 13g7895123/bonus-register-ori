@@ -5,6 +5,9 @@
  * 
  */
 
+echo 123;
+die();
+
  include_once('../../__Class/ClassLoad.php');
 
  MYPDO::$host = '139.162.15.125';
