@@ -8,10 +8,11 @@
  include_once(__DIR__.'/../../__Class/ClassLoad.php');
 
 echo __DIR__.'/../../__Class/ClassLoad.php';
+MYPDO::$host = '139.162.15.125';
 echo  MYPDO::$host;
 die();
 
- MYPDO::$host = '139.162.15.125';
+
 //  MYPDO::$port = '8098';
 //  MYPDO::$db = 'test_db';
 //  MYPDO::$user = 'db_user';
