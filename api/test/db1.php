@@ -5,7 +5,7 @@
  * 
  */
 
- include_once(__DIR__ . '/../../__Class/ClassLoad.php');
+ include_once('../../__Class/ClassLoad.php');
 
  MYPDO::$host = '139.162.15.125';
  MYPDO::$port = '8098';
