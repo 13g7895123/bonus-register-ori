@@ -24,9 +24,9 @@ include_once('./config.php');
 class MYPDO
 {
 // Host address
-    public static $host = HOSTNAME_SQL;
+    public static $host = '';
 // Host port
-    public static $port = 3306;
+    public static $port = '';
 // Username
     public static $user = '';
 // Password
