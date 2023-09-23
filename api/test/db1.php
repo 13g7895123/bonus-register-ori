@@ -17,12 +17,12 @@ MYPDO::$pwd = 'termit0035';
 
  MYPDO::$table = 'test1';
  MYPDO::$data = [
-    'c1' => '2',
-    'c2' => '2',
+    'c1' => '3',
+    'c2' => '3',
     'c3' => '3',
  ];
 //  MYPDO::$where = ['id' => '1'];
- $results = MYPDO::save();
+ $results = MYPDO::insert();
 //  $results = MYPDO::select();
 
  echo json_encode($results);
