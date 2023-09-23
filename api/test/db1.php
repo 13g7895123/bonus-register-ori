@@ -17,11 +17,11 @@ MYPDO::$pwd = 'termit0035';
 
  MYPDO::$table = 'test1';
  MYPDO::$data = [
-    'c1' => 2,
-    'c2' => 2,
-    'c3' => 3,
+    'c1' => '2',
+    'c2' => '2',
+    'c3' => '3',
  ];
- MYPDO::$where = ['id' => 1];
+ MYPDO::$where = ['id' => '1'];
  MYPDO::save();
 //  $results = MYPDO::select();
 
