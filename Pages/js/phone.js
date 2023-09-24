@@ -1,4 +1,5 @@
 
+alert(123)
 const serverName = urlParam()
 console.log(serverName);
 const serverData = getServerData(serverName)
