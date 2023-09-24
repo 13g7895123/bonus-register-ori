@@ -5,19 +5,19 @@
         <div id='server_name' class="text-white mt-3"></div>
         <form id="form_area">
             <div class="inp_group mt-3">
-                <input v-model='account' @blur="accountRule" required>
+                <input id='inp_account' @blur="accountRule" required>
                 <span class="column">遊戲帳號</span>
                 <!-- <span class="notice text-red">{{ accountValidation }}</span> -->
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model='password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
+                <input id='inp_password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
                 <span class="column">密碼</span>
                 <!-- <span class="notice text-red">{{ passwordValidation }}</span> -->
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model='checkPassword' type="password" required style="white-space: normal;">
+                <input id='inp_checkPassword' type="password" required style="white-space: normal;">
                 <span class="column">確認密碼</span>
                 <i></i>
             </div>
@@ -29,6 +29,7 @@
                 <input id='code' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
+                <p id='identifyCode'></p>
             </div>
             <div 
                 id="btn-submit"
