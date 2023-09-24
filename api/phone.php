@@ -71,6 +71,7 @@ if (isset($_GET['action'])){
                 }else{
                     $return['success'] = false;
                     $return['msg'] = '簡訊發送異常，請通知管理員';
+                    $return['num'] = $msg_num;
                 }   // End msg number check                
             }else{
                 $return['success'] = false;
