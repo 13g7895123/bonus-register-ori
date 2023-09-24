@@ -1,7 +1,6 @@
 
 const server_id = url_param()
 const server_text = get_server_name(server_id)
-console.log(server_text);
 
 function url_param() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -23,7 +22,7 @@ function api (data){
         dataType: "JSON",
         success: function (response) {
             if (response.success){
-                $('#server_name').text(response.data.name)
+                $('#server_name').text(`【${response.data.name}】`)
                 $('#bg').css('background', response.data.bg)
             }
         }
