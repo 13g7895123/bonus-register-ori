@@ -6,14 +6,29 @@ renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
-
-
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
+
+const testJson = {
+    aaa: 111,
+    bbb: 222
+}
+alert(testJson.aaa)
 
 $('btn-submit').click(() => {
     const account = $('#inp_account').val()
     const password = $('#inp_password').val()
     const checkPassword = $('#inp_checkPassword').val()
+    const birth = $("#datepicker").val()
+
+    if (validationCode == code){
+        if (password == checkPassword){
+
+        }else{
+            alertMsg('密碼不相符')
+        }   // End password check
+    }else{
+        alertMsg('驗證碼錯誤')
+    }   // End validation code check
 })
 
 $('#btn-cancel-register').click(() => {
@@ -40,7 +55,7 @@ function api (data){
     let responseData
     $.ajax({
         type: "post",
-        url: '/../../api/common.php?action=server_name',
+        url: '/../../api/register.php?action=register',
         data: { server: data },
         dataType: "JSON",
         async: false,
@@ -85,3 +100,7 @@ function createCode(){
 }
 
 createCode()
+
+const alertMsg = msg => {
+    alert(msg)
+}
