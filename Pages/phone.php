@@ -95,14 +95,14 @@ body {
 
 #phone-validation-box　h2{
     display: block;
-    font-size: 1.5em;
+    font-size: 1.5em !important;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
 }
 
 #phone-validation-box　h3{
     display: block;
-    font-size: 1.17em;
+    font-size: 1.17em !important;
     margin-block-start: 1em;
     margin-block-end: 1em;
 }
