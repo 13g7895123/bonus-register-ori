@@ -24,9 +24,12 @@ if (isset($_GET['action'])){
 
                 // 確認簡訊剩餘數量
                 $server_code = $post_data['server'];
+                MYPDO::$table = 'server_management';
+                MYPDO::$where = ['server_code_name' => $server_code];
+                $result = MYPDO::first();
+                $system_user_id = $result['system_user_id'];
                 echo 'test1-2';
-                $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
-                echo 'test1-3';
+                // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
                 $msg_num = SYSAction::SQL_Data('server_management', 'id', $system_user_id, 'msg_num');
 
                 echo 'test2';
