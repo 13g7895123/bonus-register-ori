@@ -43,7 +43,7 @@ function urlParam() {
 
 function getServerData (data){
     const apiData = {
-        url: '/../../api/register.php?action=register',
+        url: '/../../api/common.php?action=server_name',
         data: {
             server: data
         }
