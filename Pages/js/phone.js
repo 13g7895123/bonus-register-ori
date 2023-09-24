@@ -21,6 +21,7 @@ function getServerData (data){
 }
 
 function api (data){
+    console.log(`data in api funcion is ` + data);
     let responseData
     $.ajax({
         type: "post",
