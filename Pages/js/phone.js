@@ -140,6 +140,13 @@ $('#btn_sendCode').click(() => {
     if (phone != ''){
         if (validationCode == code){
             // 發送認證碼
+            const apiData = {
+                url: '/../../api/phone.php?action=sendCode',
+                data: {
+                    server: serverName,
+                    phone: phone
+                }
+            }
         }else{
             msg = '驗證碼錯誤'
             alertMsg(msg)

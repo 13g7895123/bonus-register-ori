@@ -7,47 +7,56 @@ if (isset($_GET['action'])){
     switch($_GET['action']){
         case 'sendCode':
             // 取得 POST DATA
-            $json_data = file_get_contents('php://input');  // string
-            $post_data = json_decode($json_data, true);     // string轉array
+            // $json_data = file_get_contents('php://input');  // string
+            // $post_data = json_decode($json_data, true);     // string轉array
+            $post_data = $_POST;
 
             if (isset($post_data['phone'])){
-                // 發送驗證碼
+                
                 $phone = $post_data['phone'];
 
                 // 確認簡訊剩餘數量
-                
+                $server_code = $post_data['server'];
+                $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
+                $msg_num = SYSAction::SQL_Data('server_management', 'id', $system_user_id, 'msg_num');
 
-                // $validation_code = tools::validation_code();
-                // $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
-                // $sms_result = json_decode(tools::omgms($phone, $msg), true);
+                if ($msg_num > 0){
+                    // 發送驗證碼
+                    $validation_code = tools::validation_code();
+                    $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
+                    $sms_result = json_decode(tools::omgms($phone, $msg), true);
 
-                // =====驗證簡訊是否傳送成功=====
-                if ($sms_result['StatusCode']){     // 回傳狀態碼成功
-                    // 驗證資料存入DB
-                    MYPDO::$table = 'phone_validation';
-                    MYPDO::$data = [
-                        'phone' => $phone,
-                        'validation_code' => $validation_code,
-                        'validation_code_create_at_timestamp' => time(),
-                        'destination' => $sms_result['Result']['Destination'],
-                        'status' => $sms_result['Result']['Status'],
-                        'desc' => $sms_result['Result']['Desc'],
-                        'messageId' => $sms_result['Result']['MessageId'],
-                    ];
-                    $insertId = MYPDO::insert();
-                    
-                    // 確認寫入成功
-                    if ($insertId > 0){
-                        $return['success'] = true;
-                        $return['msg'] = '認證碼已發送至手機';
+                    // =====驗證簡訊是否傳送成功=====
+                    if ($sms_result['StatusCode']){     // 回傳狀態碼成功
+                        // 驗證資料存入DB
+                        MYPDO::$table = 'phone_validation';
+                        MYPDO::$data = [
+                            'phone' => $phone,
+                            'validation_code' => $validation_code,
+                            'validation_code_create_at_timestamp' => time(),
+                            'destination' => $sms_result['Result']['Destination'],
+                            'status' => $sms_result['Result']['Status'],
+                            'desc' => $sms_result['Result']['Desc'],
+                            'messageId' => $sms_result['Result']['MessageId'],
+                        ];
+                        $insertId = MYPDO::insert();
+                        
+                        // 確認寫入成功
+                        if ($insertId > 0){
+                            $return['success'] = true;
+                            $return['msg'] = '認證碼已發送至手機';
+                        }else{
+                            $return['success'] = false;
+                            $return['msg'] = 'API傳送有誤';
+                        }
                     }else{
                         $return['success'] = false;
-                        $return['msg'] = 'API傳送有誤';
+                        $return['msg'] = '寫入資料庫錯誤';
                     }
                 }else{
                     $return['success'] = false;
-                    $return['msg'] = '寫入資料庫錯誤';
-                }
+                    $return['msg'] = '簡訊發送異常，請通知管理員';
+                }   // End msg number check                
             }else{
                 $return['success'] = false;
                 $return['msg'] = '手機號碼有誤';
