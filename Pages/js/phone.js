@@ -1,10 +1,13 @@
 
 const serverName = urlParam()
-const serverData = getServerData(serverName)
+let serverData = getServerData(serverName)
+const imgDomain = 'http://missa.mercylife.cc/'
+serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
 function renderServer(data){
-    $('#server_name').text(`【${data.name}】`)
+    $('#bg').css('background-image', `url(${data.domain}${data.bg})`)   // 背景圖
+    $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
 }
 
 function urlParam() {
