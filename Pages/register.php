@@ -12,7 +12,7 @@
             </div>
             <div class="inp_group mt-2">
                 <input v-model='password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
-                <!-- <span class="column">{{ passwordColumn }}</span> -->
+                <span class="column">密碼</span>
                 <!-- <span class="notice text-red">{{ passwordValidation }}</span> -->
                 <i></i>
             </div>
