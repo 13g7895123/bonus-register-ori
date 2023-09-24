@@ -26,7 +26,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input id='code' required>
+                <input id='inp_validationCode' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
                 <p id='identifyCode'></p>
