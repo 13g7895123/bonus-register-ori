@@ -147,13 +147,12 @@ $('#btn_sendCode').click(() => {
                     phone: phone
                 }
             }
+            api(apiData)
         }else{
-            msg = '驗證碼錯誤'
-            alertMsg(msg)
+            alertMsg('驗證碼錯誤')
         }
     }else{
-        msg = '請輸入手機號碼'
-        alertMsg(msg)
+        alertMsg('請輸入手機號碼')
     }
 })
 
