@@ -13,6 +13,7 @@
                 <input v-model = 'validationCode' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
+                <p id='identifyCode'></p>
                 <IdentifyCode
                     ref="identify"
                     class="code-box"
@@ -213,4 +214,19 @@ h2, h3, #form_area{
     right: 0;
     top: 14px;
 }
+
+#identifyCode { 
+    cursor: pointer;
+    font-family:Arial; 
+    font-style:italic; 
+    font-weight:bold; 
+    border:0; 
+    letter-spacing:2px; 
+    color:blue;
+    background-color: red;
+    padding:4px;
+    width:110px;
+    height:40px;
+    text-align:center
+} 
 </style>
