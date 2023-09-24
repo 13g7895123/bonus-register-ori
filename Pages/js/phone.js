@@ -12,9 +12,12 @@ const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
  * 按鈕 - 送出
 */
 $('#btn_submit').click(() => {
-    // 驗證認證碼
     const phone = $('#inp_phone').val()
-    $(location).attr('href', `${registerUrl}&phone=${phone}`);
+    const url = `${registerUrl}&phone=${phone}`
+
+    // 取得認證碼
+    // 驗證認證碼
+    goPage(url)
 })
 
 function renderServer(data){
@@ -122,8 +125,25 @@ createCode()
 $('#btn_sendCode').click(() => {
     const phone = $('#inp_phone').val()
     const validationCode = $('#inp_validationCode').val()
-    alert(phone, validationCode, code)
-    alert(validationCode)
-    alert(code)
+
+    if (phone != ''){
+        if (validationCode == code){
+            // 發送認證碼
+        }else{
+            msg = '驗證碼錯誤'
+            alertMsg(msg)
+        }
+    }else{
+        msg = '請輸入手機號碼'
+        alertMsg(msg)
+    }
+
+    const alertMsg = msg => {
+        alert(msg)
+    }
+
+    const goPage = url => {
+        $(location).attr('href', url);
+    }
 })
 

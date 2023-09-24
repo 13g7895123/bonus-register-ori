@@ -6,6 +6,8 @@ renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
+$("#datepicker").datepicker();
+
 $('#btn-cancel-register').click(() => {
     $(location).attr('href', registerUrl);
 })

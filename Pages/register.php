@@ -22,14 +22,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <VueDatePicker 
-                    v-model='birthday' 
-                    :format="dateFormat"
-                    placeholder="出生年月日"
-                    hide-input-icon
-                    auto-apply
-                    :enable-time-picker="false"
-                />
+                <input type="text" id="datepicker" size="30">
                 <i></i>
             </div>
             <div class="inp_group mt-2">
