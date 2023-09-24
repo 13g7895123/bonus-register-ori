@@ -7,16 +7,6 @@ renderServer(serverData)    // 更新標題
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 
-createCode();   // 建立驗證碼
-
-/*
- * 按鈕 - 發送認證碼
-*/
-$('#btn_sendCode').click(() => {
-    const phone = $('#inp_phone').val()
-    const validationCode = $('#inp_validationCode').val()
-    alert(phone, validationCode, code)
-})
 
 /*
  * 按鈕 - 送出
@@ -123,4 +113,15 @@ function createCode(){
 //     document.getElementById("input").value = "";//清空文字框 
 // 	} 
 // });
+
+createCode()
+
+/*
+ * 按鈕 - 發送認證碼
+*/
+$('#btn_sendCode').click(() => {
+    const phone = $('#inp_phone').val()
+    const validationCode = $('#inp_validationCode').val()
+    alert(phone, validationCode, code)
+})
 
