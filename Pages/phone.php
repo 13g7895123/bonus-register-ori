@@ -230,5 +230,6 @@ h2, h3, #form_area{
     text-align:center;
     position: absolute;
     right: 0;
+    top: 14px;
 } 
 </style>
