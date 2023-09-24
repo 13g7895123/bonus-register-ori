@@ -40,7 +40,7 @@
             </div>
             <div 
                 id="btn-submit"
-                class="bg-white rounded flex justify-center items-center btn py-1 mt-1"
+                class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
                 >提交註冊</div>
             <div
                 id='btn-cancel-register'
