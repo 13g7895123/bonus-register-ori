@@ -47,7 +47,7 @@ $('#btn-submit').click(() => {
 })
 
 $('#btn-cancel-register').click(() => {
-    $(location).attr('href', registerUrl);
+    $(location).attr('href', phoneUrl);
 })
 
 function renderServer(data){
