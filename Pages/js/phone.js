@@ -1,5 +1,6 @@
 
 const serverName = urlParam()
+console.log(serverName);
 const serverData = getServerData(serverName)
 renderServer(serverData)    // 更新標題
 console.log(serverData);
