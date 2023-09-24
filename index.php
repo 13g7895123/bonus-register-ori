@@ -26,6 +26,9 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
 
     <link href='./dist/output.css' rel='stylesheet'> 
     <link rel="stylesheet" href="./assets/plugin/select2.min.css" />
+    <!-- 9/24 新增 Datepicker -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body class='h-[100dvh] relative bg-slate-800 p-0'>
     <div class='h-full relative flex flex-col justify-center'>
@@ -42,5 +45,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <script type='module' src='./Pages/js/<?php echo $NOW_Page ?>.js'></script>
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/d804364582.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 </body>
 </html>
