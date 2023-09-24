@@ -21,6 +21,7 @@ $('#btn-submit').click(() => {
                 const apiData = {
                     url: '/../../api/register.php?action=register',
                     data: {
+                        server: serverName,
                         phone: phone,
                         account: account,
                         password: password,
