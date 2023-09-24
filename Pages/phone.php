@@ -93,7 +93,7 @@ body {
     z-index: 20;
 }
 
-#phone-validation-box　#title{
+#title{
     display: block;
     font-size: 1.5em !important;
     margin-top: 48px;
@@ -102,7 +102,7 @@ body {
     z-index: 20;
 }
 
-#phone-validation-#server_name{
+#server_name{
     display: block;
     font-size: 1.17em !important;
     margin-block-start: 1em;
