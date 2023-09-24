@@ -5,6 +5,10 @@ const imgDomain = 'http://missa.mercylife.cc/'
 serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
+$('#btn_submit').click(() => {
+    
+})
+
 function renderServer(data){
     $('#bg').css('background-image', `url(${data.domain}${data.bg})`)   // 背景圖
     $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
@@ -26,9 +30,7 @@ function api (data){
     $.ajax({
         type: "post",
         url: '/../../api/common.php?action=server_name',
-        data: {
-            server: data,
-        },
+        data: { server: data },
         dataType: "JSON",
         async: false,
         success: function (response) {
@@ -49,7 +51,6 @@ var fontColor = ["blue","yellow","red"];
 var bgColor = ["yellow","red","blue",];
 var ls = ["2px","8px","-2px",];
 var iColor;
-//alert(iColor);
 
 //隨機設定顏色組合
 function randColor(){
@@ -62,7 +63,6 @@ function createCode(){
     checkCode.css('color', fontColor[ci])
     checkCode.css('background-color', bgColor[ci])
     checkCode.css('letter-spacing', ls[ci])
-  //alert (ci);
 	code = ""; 
 	var codeLength = 4;//驗證碼的長度	
 	var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);//隨機數 
@@ -71,7 +71,6 @@ function createCode(){
 		code  += random[index];//根據索引取得隨機數加到code上 
 	} 
     checkCode.html(code)    //把code值賦給驗證碼
-    alert(code)
 }
 
 //更新驗證碼
