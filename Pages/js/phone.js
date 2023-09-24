@@ -9,7 +9,8 @@ const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 
 $('#btn_submit').click(() => {
     // 驗證認證碼
-    $(location).attr('href', registerUrl);
+    const phone = $('#inp_phone').val()
+    $(location).attr('href', `${registerUrl}&phone=${phone}`);
 })
 
 function renderServer(data){
