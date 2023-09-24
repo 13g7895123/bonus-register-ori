@@ -74,37 +74,37 @@ function createCode(){
 }
 
 //更新驗證碼
-var recode=document.getElementById('recode');
-recode.addEventListener("click",function(e){
-	createCode();
-    document.getElementById("input").value = "";//清空文字框
-    e.preventDefault();	
-});
+// var recode=document.getElementById('recode');
+// recode.addEventListener("click",function(e){
+// 	createCode();
+//     document.getElementById("input").value = "";//清空文字框
+//     e.preventDefault();	
+// });
 
-//點擊更新驗證碼
-checkCode.addEventListener("click",function(e){
-	createCode();
-  document.getElementById("input").value = "";//清空文字框
-  e.preventDefault();	
-});
+// //點擊更新驗證碼
+// checkCode.addEventListener("click",function(e){
+// 	createCode();
+//   document.getElementById("input").value = "";//清空文字框
+//   e.preventDefault();	
+// });
 
-//驗證
-var validate=document.getElementById('validate');
-validate.addEventListener("click",function(e){
-	var inputCode = document.getElementById("input").value.toUpperCase(); //取得輸入的驗證碼並轉化為大寫 
-	if(inputCode.length <= 0) { //若輸入的驗證碼長度為0 
-		alert("請輸入驗證碼！"); //則彈出請輸入驗證碼 
-	} 
-	else if(inputCode !== code ) { //若輸入的驗證碼與產生的驗證碼不一致時 
-      alert("驗證碼輸入錯誤！@_@"); //則彈出驗證碼輸入錯誤 
-      createCode();//重新整理驗證碼 
-	    document.getElementById("input").value = "";//清空文字框 
-	} 
-	else { //輸入正確時 
-		alert("^-^"); //彈出^-^ 
-    createCode();//重新整理驗證碼 
-    document.getElementById("input").value = "";//清空文字框 
-	} 
-});
+// //驗證
+// var validate=document.getElementById('validate');
+// validate.addEventListener("click",function(e){
+// 	var inputCode = document.getElementById("input").value.toUpperCase(); //取得輸入的驗證碼並轉化為大寫 
+// 	if(inputCode.length <= 0) { //若輸入的驗證碼長度為0 
+// 		alert("請輸入驗證碼！"); //則彈出請輸入驗證碼 
+// 	} 
+// 	else if(inputCode !== code ) { //若輸入的驗證碼與產生的驗證碼不一致時 
+//       alert("驗證碼輸入錯誤！@_@"); //則彈出驗證碼輸入錯誤 
+//       createCode();//重新整理驗證碼 
+// 	    document.getElementById("input").value = "";//清空文字框 
+// 	} 
+// 	else { //輸入正確時 
+// 		alert("^-^"); //彈出^-^ 
+//     createCode();//重新整理驗證碼 
+//     document.getElementById("input").value = "";//清空文字框 
+// 	} 
+// });
 
 createCode();
