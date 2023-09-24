@@ -1,20 +1,15 @@
 
 const serverName = urlParam()
-console.log(serverName);
 const serverData = getServerData(serverName)
 renderServer(serverData)    // 更新標題
-console.log(serverData);
 
 function renderServer(data){
-    // $('#title').text(serverData.)
+    $('#server_name').text(`【${serverData.name}】`)
 }
 
 function urlParam() {
-    alert(123)
     const urlParams = new URLSearchParams(window.location.search);
-    console.log(urlParams);
-    const serverName= urlParams.get('sn')  // server name
-    console.log(serverName);
+    const serverName= urlParams.get('sn')   // server name
     return serverName
 }
 
@@ -24,7 +19,6 @@ function getServerData (data){
 }
 
 function api (data){
-    console.log(`data in api funcion is ` + data);
     let responseData
     $.ajax({
         type: "post",
