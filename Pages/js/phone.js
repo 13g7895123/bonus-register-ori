@@ -5,8 +5,11 @@ const imgDomain = 'http://missa.mercylife.cc/'
 serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
+const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
+
 $('#btn_submit').click(() => {
-    $(location).attr('href', '?page=register');
+    // 驗證認證碼
+    $(location).attr('href', registerUrl);
 })
 
 function renderServer(data){
