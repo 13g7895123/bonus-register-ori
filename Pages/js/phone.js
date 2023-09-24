@@ -67,7 +67,7 @@ function createCode(){
 	var codeLength = 4;//驗證碼的長度	
 	var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);//隨機數 
 	for(var i = 0; i < codeLength; i++  ) {//迴圈操作 
-		var index = Math.floor(Math.random()*36);//取得隨機數的索引（0~35） 
+		var index = Math.floor(Math.random()*random.length);//取得隨機數的索引（0~35） 
 		code  += random[index];//根據索引取得隨機數加到code上 
 	} 
 	checkCode.innerHTML= code;//把code值賦給驗證碼
