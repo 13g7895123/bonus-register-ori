@@ -7,13 +7,13 @@
             <div class="inp_group mt-3">
                 <input v-model='account' @blur="accountRule" required>
                 <span class="column">遊戲帳號</span>
-                <span class="notice text-red">{{ accountValidation }}</span>
+                <!-- <span class="notice text-red">{{ accountValidation }}</span> -->
                 <i></i>
             </div>
             <div class="inp_group mt-2">
                 <input v-model='password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
-                <span class="column">{{ passwordColumn }}</span>
-                <span class="notice text-red">{{ passwordValidation }}</span>
+                <!-- <span class="column">{{ passwordColumn }}</span> -->
+                <!-- <span class="notice text-red">{{ passwordValidation }}</span> -->
                 <i></i>
             </div>
             <div class="inp_group mt-2">
