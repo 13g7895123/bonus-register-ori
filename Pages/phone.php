@@ -96,6 +96,7 @@ body {
 #phone-validation-box　#title{
     display: block;
     font-size: 1.5em !important;
+    margin-top: 48px;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     z-index: 20;
