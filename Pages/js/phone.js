@@ -6,7 +6,7 @@ serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
 $('#btn_submit').click(() => {
-    
+    $(location).attr('href', '?page=register');
 })
 
 function renderServer(data){
