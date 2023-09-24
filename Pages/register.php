@@ -50,8 +50,8 @@
                 @click = "submit"
                 >提交註冊</div>
             <div
+                id='btn-cancel-register'
                 class="bg-white rounded flex justify-center items-center btn py-1 mt-3"
-                @click = "router.push({ path: `/phonevalidation/${server}` })"
                 >取消註冊</div>
         </form>
     </div>
