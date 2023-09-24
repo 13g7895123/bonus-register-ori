@@ -26,7 +26,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model='code' required>
+                <input id='code' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
                 <IdentifyCode
