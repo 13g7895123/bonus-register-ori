@@ -62,10 +62,11 @@ var fontColor = ["blue","yellow","red"];
 var bgColor = ["yellow","red","blue",];
 var ls = ["2px","8px","-2px",];
 var iColor;
+const fontColorLength = fontColor.length
 
 //隨機設定顏色組合
 function randColor(){
-    iColor = Math.floor(Math.random()*(fontColor.length));
+    iColor = Math.floor(Math.random()*fontColorLength);
     return iColor;
 }
 function createCode(){
