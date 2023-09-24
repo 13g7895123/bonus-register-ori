@@ -12,7 +12,9 @@ function renderServer(data){
 function urlParam() {
     alert(123)
     const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams);
     const serverName= urlParams.get('sn')  // server name
+    console.log(serverName);
     return serverName
 }
 
