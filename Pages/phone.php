@@ -1,4 +1,4 @@
-<? include_once('./compoment/common_bg_head.php') ?>
+<? include('./compoment/common_bg_head.php') ?>
 <form id="form_area">
     <div class="inp_group mt-3">
         <input v-model = 'phone' required>
@@ -28,7 +28,7 @@
         @click = ""
         >客服中心</div>
 </form>
-<? include_once('./compoment/common_bg_footer.php') ?>
+<? include('./compoment/common_bg_footer.php') ?>
 <style>
 #bg{
     display: flex;
