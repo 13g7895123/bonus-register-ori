@@ -29,8 +29,12 @@ if (isset($_GET['action'])){
                 $result = MYPDO::first();
                 $system_user_id = $result['system_user_id'];
                 echo $system_user_id;
+                MYPDO::$table = 'server_management';
+                MYPDO::$where = ['server_code_name' => $server_code];
+                $result = MYPDO::first();
+                $system_user_id = $result['system_user_id'];
                 // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
-                $msg_num = SYSAction::SQL_Data('server_management', 'id', $system_user_id, 'msg_num');
+                $msg_num = SYSAction::SQL_Data('system_user', 'id', $system_user_id, 'msg_num');
 
                 echo 'test2';
 
