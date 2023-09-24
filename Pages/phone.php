@@ -93,6 +93,20 @@ body {
     z-index: 20;
 }
 
+#phone-validation-box　h2{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+#phone-validation-box　h3{
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
 #phone-validation-box::before{
     content: '';
     position: absolute;
