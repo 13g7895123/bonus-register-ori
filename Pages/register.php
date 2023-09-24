@@ -1,56 +1,77 @@
-<form id="form_area">
-        <div class="inp_group mt-3">
-            <input v-model='account' @blur="accountRule" required>
-            <span class="column">遊戲帳號</span>
-            <span class="notice text-red">{{ accountValidation }}</span>
-            <i></i>
-        </div>
-        <div class="inp_group mt-2">
-            <input v-model='password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
-            <span class="column">{{ passwordColumn }}</span>
-            <span class="notice text-red">{{ passwordValidation }}</span>
-            <i></i>
-        </div>
-        <div class="inp_group mt-2">
-            <input v-model = 'checkPassword' type="password" required style="white-space: normal;">
-            <span class="column">確認密碼</span>
-            <i></i>
-        </div>
-        <div class="inp_group mt-2">
-            <VueDatePicker 
-                v-model='birthday' 
-                :format="dateFormat"
-                placeholder="出生年月日"
-                hide-input-icon
-                auto-apply
-                :enable-time-picker="false"
-            />
-            <i></i>
-        </div>
-        <div class="inp_group mt-2">
-            <input v-model = 'code' required>
-            <span class="column">驗證碼</span>
-            <i style="width: 58%;"></i>
-            <IdentifyCode
-                ref="identify"
-                class="code-box"
-                :contentWidth="110"
-                :contentHeight="40"
-                @updateIdentifyCode="setIdentifyCode"
-                >
-            </IdentifyCode>
-        </div>
-        <div 
-            class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
-            @click = "submit"
-            >提交註冊</div>
-        <div
-            class="bg-white rounded flex justify-center items-center btn py-1 mt-3"
-            @click = "router.push({ path: `/phonevalidation/${server}` })"
-            >取消註冊</div>
-    </form>
-    <style>
-        html {
+<div id='bg' class="w-full h-full">
+    <div id="phone-validation-box" class="rounded-lg">
+        <div id="mask"></div>
+        <div id='title' class="text-white mt-12">註冊帳號</div>
+        <div id='server_name' class="text-white mt-3"></div>
+        <form id="form_area">
+            <div class="inp_group mt-3">
+                <input v-model='account' @blur="accountRule" required>
+                <span class="column">遊戲帳號</span>
+                <span class="notice text-red">{{ accountValidation }}</span>
+                <i></i>
+            </div>
+            <div class="inp_group mt-2">
+                <input v-model='password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
+                <span class="column">{{ passwordColumn }}</span>
+                <span class="notice text-red">{{ passwordValidation }}</span>
+                <i></i>
+            </div>
+            <div class="inp_group mt-2">
+                <input v-model = 'checkPassword' type="password" required style="white-space: normal;">
+                <span class="column">確認密碼</span>
+                <i></i>
+            </div>
+            <div class="inp_group mt-2">
+                <VueDatePicker 
+                    v-model='birthday' 
+                    :format="dateFormat"
+                    placeholder="出生年月日"
+                    hide-input-icon
+                    auto-apply
+                    :enable-time-picker="false"
+                />
+                <i></i>
+            </div>
+            <div class="inp_group mt-2">
+                <input v-model = 'code' required>
+                <span class="column">驗證碼</span>
+                <i style="width: 58%;"></i>
+                <IdentifyCode
+                    ref="identify"
+                    class="code-box"
+                    :contentWidth="110"
+                    :contentHeight="40"
+                    @updateIdentifyCode="setIdentifyCode"
+                    >
+                </IdentifyCode>
+            </div>
+            <div 
+                class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
+                @click = "submit"
+                >提交註冊</div>
+            <div
+                class="bg-white rounded flex justify-center items-center btn py-1 mt-3"
+                @click = "router.push({ path: `/phonevalidation/${server}` })"
+                >取消註冊</div>
+        </form>
+    </div>
+</div>
+<style>
+#bg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: no-repeat;
+    background-size: cover;
+    background-position: center;
+    animation: bg-rotate 5s linear infinite;
+}
+@keyframes bg-rotate{
+    100% {
+        filter: hue-rotate(360deg);
+    }
+} 
+html {
     overflow: -moz-hidden-unscrollable;
     height: 100%;
 }
@@ -64,21 +85,6 @@ body {
 	overflow: auto;
 }
 /* --- scroll bar hide end --- */
-#bg{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: url('../assets/bg.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    animation: bg-rotate 5s linear infinite;
-}
-
-@keyframes bg-rotate{
-    100% {
-        filter: hue-rotate(360deg);
-    }
-} 
 #mask{
     width: calc(100% - 6px);
     height: calc(100% - 6px);
@@ -90,9 +96,9 @@ body {
     z-index: 1;
 }
 
-#register-box{
+#phone-validation-box{
     width: 350px;
-    height: 560px;
+    height: 510px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,26 +108,39 @@ body {
     z-index: 20;
 }
 
-#register-box::before{
+#title{
+    display: block;
+    font-size: 1.5em !important;
+    margin-top: 48px;
+    z-index: 20;
+}
+
+#server_name{
+    display: block;
+    font-size: 1.17em !important;
+    z-index: 20;
+}
+
+#phone-validation-box::before{
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 560px;
+    height: 510px;
     background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
     z-index: -1;
 }
 
-#register-box::after{
+#phone-validation-box::after{
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 560px;
+    height: 510px;
     background: linear-gradient(60deg, transparent, #d9138a, #d9138a);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -137,7 +156,7 @@ body {
     }
 }
 
-h2, #form_area{
+h2, h3, #form_area{
     z-index: 20;
 }
 
@@ -153,7 +172,7 @@ h2, #form_area{
 .inp_group input{
     position: relative;
     width: 100%;
-    padding: 20px 10px 6px 10px;
+    padding: 20px 10px 10px;
     background-color: transparent;
     border: none;
     outline: none;
@@ -164,7 +183,7 @@ h2, #form_area{
     transition: 0.5s;
 }
 
-.column{
+.inp_group span{
     position: absolute;
     left: 0;
     padding: 20px 10px 10px;
@@ -175,20 +194,8 @@ h2, #form_area{
     transition: 0.5s;
 }
 
-.notice{
-    position: absolute;
-    left: none;
-    right: 0px;
-    top: 28px;
-    font-size: 0.7em;
-    color: red;
-    pointer-events: none;
-    letter-spacing: 0.05em;
-    transition: 0.5s;
-}
-
-.inp_group input:valid ~.column,
-.inp_group input:focus ~.column{
+.inp_group input:valid ~span,
+.inp_group input:focus ~span{
     font-size: 0.75em;
     transform: translate(-10px, -15px);
 }
@@ -221,4 +228,22 @@ h2, #form_area{
     right: 0;
     top: 14px;
 }
+
+#identifyCode { 
+    cursor: pointer;
+    font-family:Arial; 
+    font-style:italic; 
+    font-weight:bold; 
+    border:0; 
+    letter-spacing:2px; 
+    color:blue;
+    background-color: red;
+    padding:4px;
+    width:110px;
+    height:40px;
+    text-align:center;
+    position: absolute;
+    right: 0;
+    top: 14px;
+} 
 </style>
