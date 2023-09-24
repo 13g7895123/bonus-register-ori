@@ -4,7 +4,7 @@ const serverData = getServerData(serverName)
 renderServer(serverData)    // 更新標題
 
 function renderServer(data){
-    $('#server_name').text(`【${serverData.name}】`)
+    $('#server_name').text(`【${data.name}】`)
 }
 
 function urlParam() {
