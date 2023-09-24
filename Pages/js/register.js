@@ -17,25 +17,27 @@ $('#btn-submit').click(() => {
     const validationCode = $('#inp_validationCode').val()
 
     if (validationCode == code){
-        if (password == checkPassword){
-            const apiData = {
-                url: '/../../api/register.php?action=register',
-                data: {
-                    account: account,
-                    password: password,
-                    birth: birth
+        if (account != '' &&  password != '' && checkPassword != '' && birth != ''){
+            if (password == checkPassword){
+                const apiData = {
+                    url: '/../../api/register.php?action=register',
+                    data: {
+                        account: account,
+                        password: password,
+                        birth: birth
+                    }
                 }
-            }
-            const response = api(apiData)
-            if (response.success){
-                alertMsg('註冊成功')
-                // 跳轉頁面
+                const response = api(apiData)
+                if (response.success){
+                    alertMsg('註冊成功')
+                    // 跳轉頁面
+                }else{
+                    alertMsg('註冊失敗')
+                }
             }else{
-                alertMsg('註冊失敗')
-            }
-        }else{
-            alertMsg('密碼不相符')
-        }   // End password check
+                alertMsg('密碼不相符')
+            }   // End password check
+        }   // End column not empty
     }else{
         alertMsg('驗證碼錯誤')
     }   // End validation code check
