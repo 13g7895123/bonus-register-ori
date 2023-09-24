@@ -1,5 +1,5 @@
 <div id='bg' class="w-full h-full">
-    <div id="phone-validation-box" class="rounded-lg">
+    <div id="register-box" class="rounded-lg">
         <div id="mask"></div>
         <div id='title' class="text-white mt-12">註冊帳號</div>
         <div id='server_name' class="text-white mt-3"></div>
@@ -17,7 +17,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model = 'checkPassword' type="password" required style="white-space: normal;">
+                <input v-model='checkPassword' type="password" required style="white-space: normal;">
                 <span class="column">確認密碼</span>
                 <i></i>
             </div>
@@ -26,7 +26,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model = 'code' required>
+                <input v-model='code' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
                 <IdentifyCode
@@ -39,8 +39,8 @@
                 </IdentifyCode>
             </div>
             <div 
+                id="btn-submit"
                 class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
-                @click = "submit"
                 >提交註冊</div>
             <div
                 id='btn-cancel-register'
@@ -89,9 +89,9 @@ body {
     z-index: 1;
 }
 
-#phone-validation-box{
+#register-box{
     width: 350px;
-    height: 510px;
+    height: 530px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +114,7 @@ body {
     z-index: 20;
 }
 
-#phone-validation-box::before{
+#register-box::before{
     content: '';
     position: absolute;
     top: -50%;
@@ -127,7 +127,7 @@ body {
     z-index: -1;
 }
 
-#phone-validation-box::after{
+#register-box::after{
     content: '';
     position: absolute;
     top: -50%;
