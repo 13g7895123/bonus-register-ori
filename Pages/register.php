@@ -38,7 +38,7 @@
                     >
                 </IdentifyCode>
             </div>
-            <hr>
+            <hr class="mt-5">>
             <div 
                 id="btn-submit"
                 class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
@@ -92,7 +92,7 @@ body {
 
 #register-box{
     width: 350px;
-    height: 530px;
+    height: 570px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +121,7 @@ body {
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 510px;
+    height: 570px;
     background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -134,7 +134,7 @@ body {
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 510px;
+    height: 570px;
     background: linear-gradient(60deg, transparent, #d9138a, #d9138a);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
