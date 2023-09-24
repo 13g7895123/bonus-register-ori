@@ -1,8 +1,8 @@
 const serverName = urlParam()
-let serverData = getServerData(serverName)
-const imgDomain = 'http://missa.mercylife.cc/'
-serverData.domain = imgDomain
-renderServer(serverData)    // 更新標題
+// let serverData = getServerData(serverName)
+// const imgDomain = 'http://missa.mercylife.cc/'
+// serverData.domain = imgDomain
+// renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
