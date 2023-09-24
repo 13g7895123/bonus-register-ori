@@ -41,7 +41,7 @@ function api (data){
 }
 
 //全域變數 紀錄驗證碼
-let code="";
+let code = "";
 let checkCode = $('#identifyCode');
 
 //顏色組
@@ -58,13 +58,13 @@ function randColor(){
 }
 function createCode(){
     let ci = randColor()
-    checkCode.style['color']=fontColor[ci];
-    checkCode.style['background-color']=bgColor[ci];
-    checkCode.style['letter-spacing']=ls[ci];
+    checkCode.style['color'] = fontColor[ci];
+    checkCode.style['background-color'] = bgColor[ci];
+    checkCode.style['letter-spacing'] = ls[ci];
   //alert (ci);
 	code = ""; 
-	var codeLength = 6;//驗證碼的長度	
-	var random = new Array(0,1,2,3,4,5,6,7,8,9);//隨機數 
+	var codeLength = 4;//驗證碼的長度	
+	var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);//隨機數 
 	for(var i = 0; i < codeLength; i++  ) {//迴圈操作 
 		var index = Math.floor(Math.random()*36);//取得隨機數的索引（0~35） 
 		code  += random[index];//根據索引取得隨機數加到code上 
@@ -77,8 +77,8 @@ function createCode(){
 var recode=document.getElementById('recode');
 recode.addEventListener("click",function(e){
 	createCode();
-  document.getElementById("input").value = "";//清空文字框
-  e.preventDefault();	
+    document.getElementById("input").value = "";//清空文字框
+    e.preventDefault();	
 });
 
 //點擊更新驗證碼
