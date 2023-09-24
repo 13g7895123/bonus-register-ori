@@ -37,7 +37,9 @@ $('#btn-submit').click(() => {
             }else{
                 alertMsg('密碼不相符')
             }   // End password check
-        }   // End column not empty
+        }else{
+            alertMsg('請填入正確的資料')
+        }  // End column not empty
     }else{
         alertMsg('驗證碼錯誤')
     }   // End validation code check
