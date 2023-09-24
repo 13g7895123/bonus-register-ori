@@ -38,7 +38,6 @@
                     >
                 </IdentifyCode>
             </div>
-            <hr class="mt-5">>
             <div 
                 id="btn-submit"
                 class="bg-white rounded flex justify-center items-center btn py-1 mt-1"
