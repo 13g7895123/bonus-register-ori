@@ -46,8 +46,8 @@ function api (data){
     let responseData
     $.ajax({
         type: "post",
-        url: '',
-        data: { server: data },
+        url: data.url,
+        data: data.data,
         dataType: "JSON",
         async: false,
         success: function (response) {
@@ -125,10 +125,10 @@ function createCode(){
 
 createCode()
 
-$('#identifyCode').click(() => {
-    alert(123)
-    createCode()
-})
+// $('#identifyCode').click(() => {
+//     alert(123)
+//     createCode()
+// })
 
 /*
  * 按鈕 - 發送認證碼
