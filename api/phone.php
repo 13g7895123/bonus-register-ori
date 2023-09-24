@@ -28,7 +28,7 @@ if (isset($_GET['action'])){
                 MYPDO::$where = ['server_code_name' => $server_code];
                 $result = MYPDO::first();
                 $system_user_id = $result['system_user_id'];
-                echo 'test1-2';
+                echo $system_user_id;
                 // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
                 $msg_num = SYSAction::SQL_Data('server_management', 'id', $system_user_id, 'msg_num');
 
