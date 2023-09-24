@@ -17,7 +17,21 @@ $('btn-submit').click(() => {
 
     if (validationCode == code){
         if (password == checkPassword){
-
+            const apiData = {
+                url: '/../../api/register.php?action=register',
+                data: {
+                    account: account,
+                    password: password,
+                    birth: birth
+                }
+            }
+            const response = api(apiData)
+            if (response.success){
+                alertMsg('註冊成功')
+                // 跳轉頁面
+            }else{
+                alertMsg('註冊失敗')
+            }
         }else{
             alertMsg('密碼不相符')
         }   // End password check
