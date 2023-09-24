@@ -9,7 +9,7 @@ const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
 
-$('btn-submit').click(() => {
+$('#btn-submit').click(() => {
     const account = $('#inp_account').val()
     const password = $('#inp_password').val()
     const checkPassword = $('#inp_checkPassword').val()
