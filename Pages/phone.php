@@ -1,8 +1,8 @@
 <div id='bg' class="w-screen h-screen">
     <div id="phone-validation-box" class="rounded-lg">
         <div id="mask"></div>
-        <h2 class="text-white mt-12">註冊帳號</h2>
-        <h3 id='server_name' class="text-white mt-3"></h3>
+        <div id='title' class="text-white mt-12">註冊帳號</div>
+        <div id='server_name' class="text-white mt-3"></div>
         <form id="form_area">
             <div class="inp_group mt-3">
                 <input v-model = 'phone' required>
@@ -93,14 +93,14 @@ body {
     z-index: 20;
 }
 
-#phone-validation-box　h2{
+#phone-validation-box　#title{
     display: block;
     font-size: 1.5em !important;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
 }
 
-#phone-validation-box　h3{
+#phone-validation-#server_name{
     display: block;
     font-size: 1.17em !important;
     margin-block-start: 1em;
