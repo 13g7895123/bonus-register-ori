@@ -17,8 +17,10 @@ if (isset($_GET['action'])){
             // $post_data = json_decode($json_data, true);     // string轉array
             $post_data = $_POST;
 
-            if (isset($post_data['phone'])){
-                
+            echo json_encode($post_data);
+            die();
+
+            if (isset($post_data['phone'])){                
                 $phone = $post_data['phone'];
 
                 // 確認簡訊剩餘數量
