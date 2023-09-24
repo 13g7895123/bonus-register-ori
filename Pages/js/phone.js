@@ -123,5 +123,7 @@ $('#btn_sendCode').click(() => {
     const phone = $('#inp_phone').val()
     const validationCode = $('#inp_validationCode').val()
     alert(phone, validationCode, code)
+    alert(validationCode)
+    alert(code)
 })
 
