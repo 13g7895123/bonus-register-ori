@@ -17,19 +17,21 @@ if (isset($_GET['action'])){
             // $post_data = json_decode($json_data, true);     // string轉array
             $post_data = $_POST;
 
-            echo json_encode($post_data);
-            die();
-
             if (isset($post_data['phone'])){                
                 $phone = $post_data['phone'];
+
+                echo 'test1';
 
                 // 確認簡訊剩餘數量
                 $server_code = $post_data['server'];
                 $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
                 $msg_num = SYSAction::SQL_Data('server_management', 'id', $system_user_id, 'msg_num');
 
+                echo 'test2';
+
                 if ($msg_num > 0){
                     // 發送驗證碼
+                    echo 'test3';
                     $validation_code = tools::validation_code();
                     $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
                     $sms_result = json_decode(tools::omgms($phone, $msg), true);
