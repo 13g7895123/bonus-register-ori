@@ -14,6 +14,7 @@ $('#btn-submit').click(() => {
     const password = $('#inp_password').val()
     const checkPassword = $('#inp_checkPassword').val()
     const birth = $("#datepicker").val()
+    const validationCode = $('#inp_validationCode').val()
 
     if (validationCode == code){
         if (password == checkPassword){
