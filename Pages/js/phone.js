@@ -42,20 +42,19 @@ function api (data){
 
 //全域變數 紀錄驗證碼
 let code="";
-// var checkCode = document.getElementById("code");
 let checkCode = $('#identifyCode');
 
 //顏色組
-var fontColor=["blue","yellow","red"];
-var bgColor=["yellow","red","blue",];
-var ls=["2px","8px","-2px",];
+var fontColor = ["blue","yellow","red"];
+var bgColor = ["yellow","red","blue",];
+var ls = ["2px","8px","-2px",];
 var iColor;
 //alert(iColor);
 
 //隨機設定顏色組合
 function randColor(){
-  iColor=Math.floor(Math.random()*(fontColor.length));
-  return iColor;
+    iColor = Math.floor(Math.random()*(fontColor.length));
+    return iColor;
 }
 function createCode(){
     let ci = randColor()
@@ -71,6 +70,7 @@ function createCode(){
 		code  += random[index];//根據索引取得隨機數加到code上 
 	} 
 	checkCode.innerHTML= code;//把code值賦給驗證碼
+    alert(code)
 }
 
 //更新驗證碼
