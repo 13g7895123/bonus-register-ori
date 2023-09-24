@@ -187,7 +187,7 @@ h2, h3, #form_area{
     height: 2px;
 }
 
-#btn_send_code{
+#btn_sendCode{
     padding: 2px 10px 2px 10px;
     border-radius: 5px;
     position: absolute;
