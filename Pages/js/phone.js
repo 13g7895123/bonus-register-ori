@@ -58,9 +58,10 @@ function randColor(){
 }
 function createCode(){
     let ci = randColor()
-    checkCode.style['color'] = fontColor[ci];
-    checkCode.style['background-color'] = bgColor[ci];
-    checkCode.style['letter-spacing'] = ls[ci];
+    alert(ci)
+    checkCode.css('color', fontColor[ci])
+    checkCode.css('background-color', bgColor[ci])
+    checkCode.css('letter-spacing', ls[ci])
   //alert (ci);
 	code = ""; 
 	var codeLength = 4;//驗證碼的長度	
