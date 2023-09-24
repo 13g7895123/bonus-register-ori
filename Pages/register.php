@@ -29,14 +29,6 @@
                 <input id='code' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
-                <IdentifyCode
-                    ref="identify"
-                    class="code-box"
-                    :contentWidth="110"
-                    :contentHeight="40"
-                    @updateIdentifyCode="setIdentifyCode"
-                    >
-                </IdentifyCode>
             </div>
             <div 
                 id="btn-submit"
