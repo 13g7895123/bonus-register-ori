@@ -8,11 +8,6 @@ const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
-const testJson = {
-    aaa: 111,
-    bbb: 222
-}
-alert(testJson.aaa)
 
 $('btn-submit').click(() => {
     const account = $('#inp_account').val()
@@ -47,7 +42,13 @@ function urlParam() {
 }
 
 function getServerData (data){
-    const serverData = api(data)
+    const apiData = {
+        url: '/../../api/register.php?action=register',
+        data: {
+            server: data
+        }
+    }
+    const serverData = api(apiData)
     return serverData
 }
 
@@ -55,8 +56,8 @@ function api (data){
     let responseData
     $.ajax({
         type: "post",
-        url: '/../../api/register.php?action=register',
-        data: { server: data },
+        url: data.url,
+        data: data.data,
         dataType: "JSON",
         async: false,
         success: function (response) {
