@@ -227,6 +227,8 @@ h2, h3, #form_area{
     padding:4px;
     width:110px;
     height:40px;
-    text-align:center
+    text-align:center;
+    position: absolute;
+    right: 0;
 } 
 </style>
