@@ -1,5 +1,4 @@
 
-alert(123)
 const serverName = urlParam()
 console.log(serverName);
 const serverData = getServerData(serverName)
@@ -11,6 +10,7 @@ function renderServer(data){
 }
 
 function urlParam() {
+    alert(123)
     const urlParams = new URLSearchParams(window.location.search);
     const serverName= urlParams.get('sn')  // server name
     return serverName
