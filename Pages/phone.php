@@ -97,16 +97,12 @@ body {
     display: block;
     font-size: 1.5em !important;
     margin-top: 48px;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
     z-index: 20;
 }
 
 #server_name{
     display: block;
     font-size: 1.17em !important;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
     z-index: 20;
 }
 
