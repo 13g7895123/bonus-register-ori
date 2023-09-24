@@ -70,7 +70,7 @@ function createCode(){
 		var index = Math.floor(Math.random()*random.length);//取得隨機數的索引（0~35） 
 		code  += random[index];//根據索引取得隨機數加到code上 
 	} 
-	checkCode.innerHTML= code;//把code值賦給驗證碼
+    checkCode.html(code)    //把code值賦給驗證碼
     alert(code)
 }
 
