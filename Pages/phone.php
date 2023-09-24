@@ -112,7 +112,7 @@ body {
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 450px;
+    height: 510px;
     background: linear-gradient(60deg, transparent, #45f3ff, #45f3ff);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
@@ -125,7 +125,7 @@ body {
     top: -50%;
     left: -50%;
     width: 400px;
-    height: 450px;
+    height: 510px;
     background: linear-gradient(60deg, transparent, #d9138a, #d9138a);
     transform-origin: bottom right;
     animation: animate 6s linear infinite;
