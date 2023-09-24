@@ -1,18 +1,26 @@
 
-const server_id = url_param()
-const server_text = get_server_name(server_id)
+const serverName = urlParam()
+const serverData = getServerData(serverName)
+renderServer(serverData)    // 更新標題
+console.log(serverData);
 
-function url_param() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sid = urlParams.get('sid')
-    return sid
+function renderServer(data){
+    // $('#title').text(serverData.)
 }
 
-function get_server_name (data){
-    api(data)
+function urlParam() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const serverName= urlParams.get('sn')  // server name
+    return serverName
+}
+
+function getServerData (data){
+    const serverData = api(data)
+    return serverData
 }
 
 function api (data){
+    let responseData
     $.ajax({
         type: "post",
         url: '/../../api/common.php?action=server_name',
@@ -20,11 +28,12 @@ function api (data){
             server: data,
         },
         dataType: "JSON",
+        async: false,
         success: function (response) {
             if (response.success){
-                $('#server_name').text(`【${response.data.name}】`)
-                $('#bg').css('background', response.data.bg)
+                responseData = response.data
             }
         }
     });
+    return responseData
 }
