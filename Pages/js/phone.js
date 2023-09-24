@@ -126,6 +126,7 @@ function createCode(){
 createCode()
 
 $('#identifyCode').click(() => {
+    alert(123)
     createCode()
 })
 
