@@ -22,7 +22,7 @@
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input type="text" id="datepicker" size="30">
+                <input type="text" id="datepicker" placeholder="出生年月日" size="30">
                 <i></i>
             </div>
             <div class="inp_group mt-2">
@@ -38,6 +38,7 @@
                     >
                 </IdentifyCode>
             </div>
+            <hr>
             <div 
                 id="btn-submit"
                 class="bg-white rounded flex justify-center items-center btn py-1 mt-6"
