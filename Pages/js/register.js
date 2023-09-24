@@ -12,11 +12,11 @@ $('#btn-submit').click(() => {
     const account = $('#inp_account').val()
     const password = $('#inp_password').val()
     const checkPassword = $('#inp_checkPassword').val()
-    const birth = $("#datepicker").val()
+    const birthday = $("#datepicker").val()
     const validationCode = $('#inp_validationCode').val()
 
     if (validationCode == code){
-        if (account != '' &&  password != '' && checkPassword != '' && birth != ''){
+        if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
             if (password == checkPassword){
                 const apiData = {
                     url: '/../../api/register.php?action=register',
@@ -24,7 +24,7 @@ $('#btn-submit').click(() => {
                         phone: phone,
                         account: account,
                         password: password,
-                        birth: birth
+                        birthday: birthday
                     }
                 }
                 const response = api(apiData)
