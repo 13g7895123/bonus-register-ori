@@ -55,7 +55,6 @@ function api (data){
 
 //全域變數 紀錄驗證碼
 let code = "";
-let checkCode = $('#identifyCode');
 
 //顏色組
 var fontColor = ["blue","yellow","red"];
@@ -71,6 +70,7 @@ function randColor(){
 }
 function createCode(){
     let ci = randColor()
+    let checkCode = $('#identifyCode');
     checkCode.css('color', fontColor[ci])
     checkCode.css('background-color', bgColor[ci])
     checkCode.css('letter-spacing', ls[ci])
