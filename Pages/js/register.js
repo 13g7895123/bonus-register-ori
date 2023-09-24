@@ -1,4 +1,4 @@
-const serverName = urlParam()
+const { serverName, phone } = urlParam()
 let serverData = getServerData(serverName)
 const imgDomain = 'http://missa.mercylife.cc/'
 serverData.domain = imgDomain
@@ -7,7 +7,6 @@ renderServer(serverData)    // 更新標題
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
-
 
 $('#btn-submit').click(() => {
     const account = $('#inp_account').val()
@@ -22,6 +21,7 @@ $('#btn-submit').click(() => {
                 const apiData = {
                     url: '/../../api/register.php?action=register',
                     data: {
+                        phone: phone,
                         account: account,
                         password: password,
                         birth: birth
@@ -56,8 +56,13 @@ function renderServer(data){
 
 function urlParam() {
     const urlParams = new URLSearchParams(window.location.search);
-    const serverName= urlParams.get('sn')   // server name
-    return serverName
+    const serverName = urlParams.get('sn')   // server name
+    const phone = urlParams.get('phone')
+    const param = {
+        serverName: serverName,
+        phone: phone
+    }
+    return param
 }
 
 function getServerData (data){
