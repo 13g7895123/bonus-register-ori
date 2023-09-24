@@ -98,6 +98,7 @@ body {
     font-size: 1.5em !important;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
+    z-index: 20;
 }
 
 #phone-validation-#server_name{
@@ -105,6 +106,7 @@ body {
     font-size: 1.17em !important;
     margin-block-start: 1em;
     margin-block-end: 1em;
+    z-index: 20;
 }
 
 #phone-validation-box::before{
