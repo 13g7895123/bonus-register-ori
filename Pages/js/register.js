@@ -6,7 +6,7 @@ renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
-createCode()
+
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
@@ -83,3 +83,5 @@ function createCode(){
 	} 
     checkCode.html(code)    //把code值賦給驗證碼
 }
+
+createCode()
