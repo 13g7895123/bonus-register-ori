@@ -6,10 +6,14 @@ renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
+createCode()
+
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
 $('btn-submit').click(() => {
-    
+    const account = $('#inp_account').val()
+    const password = $('#inp_password').val()
+    const checkPassword = $('#inp_checkPassword').val()
 })
 
 $('#btn-cancel-register').click(() => {
@@ -47,4 +51,34 @@ function api (data){
         }
     });
     return responseData
+}
+
+//全域變數 紀錄驗證碼
+let code = "";
+let checkCode = $('#identifyCode');
+
+//顏色組
+var fontColor = ["blue","yellow","red"];
+var bgColor = ["yellow","red","blue",];
+var ls = ["2px","8px","-2px",];
+var iColor;
+
+//隨機設定顏色組合
+function randColor(){
+    iColor = Math.floor(Math.random()*(fontColor.length));
+    return iColor;
+}
+function createCode(){
+    let ci = randColor()
+    checkCode.css('color', fontColor[ci])
+    checkCode.css('background-color', bgColor[ci])
+    checkCode.css('letter-spacing', ls[ci])
+	code = ""; 
+	var codeLength = 4;//驗證碼的長度	
+	var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);//隨機數 
+	for(var i = 0; i < codeLength; i++  ) {//迴圈操作 
+		var index = Math.floor(Math.random()*random.length);//取得隨機數的索引（0~35） 
+		code  += random[index];//根據索引取得隨機數加到code上 
+	} 
+    checkCode.html(code)    //把code值賦給驗證碼
 }
