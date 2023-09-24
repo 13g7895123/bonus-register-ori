@@ -91,7 +91,7 @@ body {
 
 #register-box{
     width: 350px;
-    height: 570px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
