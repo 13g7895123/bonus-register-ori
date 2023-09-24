@@ -32,7 +32,13 @@ function urlParam() {
 }
 
 function getServerData (data){
-    const serverData = api(data)
+    const apiData = {
+        url: '/../../api/common.php?action=server_name',
+        data: {
+            server: data
+        }
+    }
+    const serverData = api(apiData)
     return serverData
 }
 
@@ -40,7 +46,7 @@ function api (data){
     let responseData
     $.ajax({
         type: "post",
-        url: '/../../api/common.php?action=server_name',
+        url: '',
         data: { server: data },
         dataType: "JSON",
         async: false,
@@ -119,6 +125,10 @@ function createCode(){
 
 createCode()
 
+$('#identifyCode').click(() => {
+    createCode()
+})
+
 /*
  * 按鈕 - 發送認證碼
 */
@@ -137,13 +147,13 @@ $('#btn_sendCode').click(() => {
         msg = '請輸入手機號碼'
         alertMsg(msg)
     }
-
-    const alertMsg = msg => {
-        alert(msg)
-    }
-
-    const goPage = url => {
-        $(location).attr('href', url);
-    }
 })
+
+const alertMsg = msg => {
+    alert(msg)
+}
+
+const goPage = url => {
+    $(location).attr('href', url);
+}
 
