@@ -7,6 +7,20 @@ renderServer(serverData)    // 更新標題
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 
+createCode();   // 建立驗證碼
+
+/*
+ * 按鈕 - 發送認證碼
+*/
+$('#btn_sendCode').click(() => {
+    const phone = $('#inp_phone').val()
+    const validationCode = $('#inp_validationCode').val()
+    alert(phone, validationCode, code)
+})
+
+/*
+ * 按鈕 - 送出
+*/
 $('#btn_submit').click(() => {
     // 驗證認證碼
     const phone = $('#inp_phone').val()
@@ -63,7 +77,6 @@ function randColor(){
 }
 function createCode(){
     let ci = randColor()
-    alert(ci)
     checkCode.css('color', fontColor[ci])
     checkCode.css('background-color', bgColor[ci])
     checkCode.css('letter-spacing', ls[ci])
@@ -111,4 +124,3 @@ function createCode(){
 // 	} 
 // });
 
-createCode();

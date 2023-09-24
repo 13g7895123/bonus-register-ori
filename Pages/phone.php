@@ -5,12 +5,12 @@
         <div id='server_name' class="text-white mt-3"></div>
         <form id="form_area">
             <div class="inp_group mt-3">
-                <input v-model = 'phone' required>
+                <input id='inp_phone' required>
                 <span class="">手機號碼</span>
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input v-model = 'validationCode' required>
+                <input id='inp_validationCode' required>
                 <span class="column">驗證碼</span>
                 <i style="width: 58%;"></i>
                 <p id='identifyCode'></p>
@@ -19,7 +19,7 @@
                 <input v-model = 'code' required>
                 <span>認證碼</span>
                 <i style="width: 60%;"></i>
-                <div id='btn_send_code' class="btn" @click="sendCode">發送認證碼</div>
+                <div id='btn_send_code' class="btn" id="btn_sendCode">發送認證碼</div>
             </div>
             <div class="bg-white rounded flex justify-center items-center btn py-1 mb-2 mt-6" id='btn_submit'>送出</div>
             <hr class="mt-5">
