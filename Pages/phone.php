@@ -16,7 +16,7 @@
                 <p id='identifyCode'></p>
             </div>
             <div class="inp_group mt-2">
-                <input v-model = 'code' required>
+                <input id='inp_code' required>
                 <span>認證碼</span>
                 <i style="width: 60%;"></i>
                 <div id='btn_sendCode' class="btn">發送認證碼</div>
