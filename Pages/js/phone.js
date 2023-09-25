@@ -127,9 +127,11 @@ $('#btn_sendCode').click(() => {
                     phone: phone
                 }
             }
-            sendCodeRes = api(apiData)
+            const sendCodeRes = api(apiData)
             if (sendCodeRes.success){
                 alertMsg('認證碼發送成功')
+            }else{
+                alertMsg(sendCodeRes.msg)
             }
         }else{
             alertMsg('驗證碼錯誤')
