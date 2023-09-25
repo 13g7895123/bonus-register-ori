@@ -5,7 +5,12 @@ include_once('./tools.php');
 include('./common_class.php');
 
 // 引入DB資訊
-common::db_config();
+// common::db_config();
+MYPDO::$host = '139.162.15.125';
+MYPDO::$port = '9901';
+MYPDO::$db = 'register-db';
+MYPDO::$user = 'register_user';
+MYPDO::$pwd = '5mu8nd5m';
 
 if (isset($_GET['action'])){
     switch($_GET['action']){
