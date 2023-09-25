@@ -1,13 +1,13 @@
 
 const serverName = urlParam()
 let serverData = getServerData(serverName)
-const imgDomain = 'http://missa.mercylife.cc/'
-serverData.domain = imgDomain
-renderServer(serverData)    // 更新標題
+if (serverData.success){
+    const imgDomain = 'http://missa.mercylife.cc/'
+    serverData.domain = imgDomain
+    renderServer(serverData)    // 更新標題
+}
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
-const apiServerName = `/../../api/common.php?action=server_name`
-const apiGetCode = `/../../api/common.php?action=server_name`
 
 /*
  * 按鈕 - 送出
@@ -15,10 +15,24 @@ const apiGetCode = `/../../api/common.php?action=server_name`
 $('#btn_submit').click(() => {
     const phone = $('#inp_phone').val()
     const url = `${registerUrl}&phone=${phone}`
+    const code = $('#inp_code').val()   // 認證碼
 
-    // 取得認證碼
-    // 驗證認證碼
-    goPage(url)
+    const apiUrl = `/../../api/phone.php?action=varify_validation_code`
+    const apiData = {
+        url: apiUrl,
+        data: { 
+            phone: phone,
+            code: code
+        }
+    }
+    const varifyRes = api(apiData)
+    
+    if (varifyRes.success){
+        alertMsg(varifyRes.msg)
+        goPage(url)
+    }else{
+        alertMsg(varifyRes.msg)
+    }    
 })
 
 function renderServer(data){
@@ -32,6 +46,7 @@ function urlParam() {
     return serverName
 }
 
+// 取得伺服器名稱
 function getServerData (data){
     const apiUrl = `/../../api/common.php?action=server_name`
     const apiData = {
@@ -51,9 +66,7 @@ function api (data){
         dataType: "JSON",
         async: false,
         success: function (response) {
-            if (response.success){
-                responseData = response.data
-            }
+            responseData = response.data
         }
     });
     return responseData
@@ -88,40 +101,6 @@ function createCode(){
 	} 
     checkCode.html(code)    //把code值賦給驗證碼
 }
-
-//更新驗證碼
-// var recode=document.getElementById('recode');
-// recode.addEventListener("click",function(e){
-// 	createCode();
-//     document.getElementById("input").value = "";//清空文字框
-//     e.preventDefault();	
-// });
-
-// //點擊更新驗證碼
-// checkCode.addEventListener("click",function(e){
-// 	createCode();
-//   document.getElementById("input").value = "";//清空文字框
-//   e.preventDefault();	
-// });
-
-// //驗證
-// var validate=document.getElementById('validate');
-// validate.addEventListener("click",function(e){
-// 	var inputCode = document.getElementById("input").value.toUpperCase(); //取得輸入的驗證碼並轉化為大寫 
-// 	if(inputCode.length <= 0) { //若輸入的驗證碼長度為0 
-// 		alert("請輸入驗證碼！"); //則彈出請輸入驗證碼 
-// 	} 
-// 	else if(inputCode !== code ) { //若輸入的驗證碼與產生的驗證碼不一致時 
-//       alert("驗證碼輸入錯誤！@_@"); //則彈出驗證碼輸入錯誤 
-//       createCode();//重新整理驗證碼 
-// 	    document.getElementById("input").value = "";//清空文字框 
-// 	} 
-// 	else { //輸入正確時 
-// 		alert("^-^"); //彈出^-^ 
-//     createCode();//重新整理驗證碼 
-//     document.getElementById("input").value = "";//清空文字框 
-// 	} 
-// });
 
 createCode()
 
