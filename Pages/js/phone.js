@@ -1,6 +1,7 @@
 
 const serverName = urlParam()
 let serverData = getServerData(serverName)
+console.log(typeof(serverData));
 const imgDomain = 'http://missa.mercylife.cc/'
 console.log(typeof(serverData));
 serverData.domain = imgDomain
