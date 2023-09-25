@@ -3,9 +3,13 @@
  *http://170.187.229.132:9091/api/bonus-register/admin/player_user.php?action=player_user
  * ===============*/
 
-include_once(__DIR__ . '/../../../__Class/ClassLoad.php');
+include_once(__DIR__ . '/../../__Class/ClassLoad.php');
 include_once(__DIR__ . '/../config.php');
 include_once(__DIR__ . '/../tools.php');
+include('/../common_class.php');
+
+// 引入DB資訊
+common::db_config();
 
 if (isset($_GET['action'])){
     switch($_GET['action']){

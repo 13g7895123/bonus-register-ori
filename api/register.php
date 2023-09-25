@@ -2,12 +2,10 @@
 include_once(__DIR__ . '/../__Class/ClassLoad.php');
 include_once('./config.php');
 include_once('./tools.php');
+include('./common_class.php');
 
-MYPDO::$host = '139.162.15.125';
-MYPDO::$port = '9901';
-MYPDO::$db = 'register-db';
-MYPDO::$user = 'register_user';
-MYPDO::$pwd = '5mu8nd5m';
+// 引入DB資訊
+common::db_config();
 
 if (isset($_GET['action'])){
     switch($_GET['action']){

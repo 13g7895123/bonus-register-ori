@@ -4,7 +4,7 @@ include_once('config.php');
 include_once('./tools.php');
 include('./common_class.php');
 
-// DB
+// 引入DB資訊
 common::db_config();
 
 error_reporting(E_ERROR | E_PARSE);
