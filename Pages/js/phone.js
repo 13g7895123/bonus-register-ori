@@ -33,11 +33,10 @@ function urlParam() {
 }
 
 function getServerData (data){
+    const apiUrl = apiServerName
     const apiData = {
-        url: apiServerName,
-        data: {
-            server: data
-        }
+        url: apiUrl,
+        data: { server: data }
     }
     const serverData = api(apiData)
     return serverData
