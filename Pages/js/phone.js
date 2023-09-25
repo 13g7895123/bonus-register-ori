@@ -67,7 +67,7 @@ function api (data){
         dataType: "JSON",
         async: false,
         success: function (response) {
-            responseData = response.data
+            responseData = response
         }
     });
     return responseData
