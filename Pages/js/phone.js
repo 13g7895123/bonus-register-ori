@@ -2,6 +2,7 @@
 const serverName = urlParam()
 let serverData = getServerData(serverName)
 const imgDomain = 'http://missa.mercylife.cc/'
+console.log(serverData);
 serverData.domain = imgDomain
 console.log(serverData);
 renderServer(serverData)    // 更新標題
