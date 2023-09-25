@@ -33,7 +33,7 @@ function urlParam() {
 }
 
 function getServerData (data){
-    const apiUrl = apiServerName
+    const apiUrl = `/../../api/common.php?action=server_name`
     const apiData = {
         url: apiUrl,
         data: { server: data }
