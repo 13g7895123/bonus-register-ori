@@ -1,15 +1,13 @@
 
 const serverName = urlParam()
 let serverData = getServerData(serverName)
-console.log(typeof(serverData));
 const imgDomain = 'http://missa.mercylife.cc/'
-console.log(typeof(serverData));
 serverData.domain = imgDomain
-console.log(serverData);
 renderServer(serverData)    // 更新標題
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
-
+const apiServerName = `/../../api/common.php?action=server_name`
+const apiGetCode = `/../../api/common.php?action=server_name`
 
 /*
  * 按鈕 - 送出
@@ -36,7 +34,7 @@ function urlParam() {
 
 function getServerData (data){
     const apiData = {
-        url: '/../../api/common.php?action=server_name',
+        url: apiServerName,
         data: {
             server: data
         }

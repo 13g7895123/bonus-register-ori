@@ -11,14 +11,10 @@ if (isset($_GET['action'])){
     switch($_GET['action']){
         case 'sendCode':
             // 取得 POST DATA
-            // $json_data = file_get_contents('php://input');  // string
-            // $post_data = json_decode($json_data, true);     // string轉array
-            $post_data = $_POST;
+            $post_data = common::post_data();
 
             if (isset($post_data['phone'])){                
                 $phone = $post_data['phone'];
-
-                echo 'test1';
 
                 // 確認簡訊剩餘數量
                 $server_code = $post_data['server'];
@@ -26,7 +22,6 @@ if (isset($_GET['action'])){
                 MYPDO::$where = ['server_code_name' => $server_code];
                 $result = MYPDO::first();
                 $system_user_id = $result['system_user_id'];
-                echo $system_user_id;
                 MYPDO::$table = 'server_management';
                 MYPDO::$where = ['server_code_name' => $server_code];
                 $result = MYPDO::first();
@@ -84,8 +79,7 @@ if (isset($_GET['action'])){
             break;
         case 'varify_validation_code':
             // 取得 POST DATA
-            $json_data = file_get_contents('php://input');  // string
-            $post_data = json_decode($json_data, true);     // string轉array
+            $post_data = common::post_data();
                       
             if (isset($post_data['phone']) && isset($post_data['code'])){
 
