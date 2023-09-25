@@ -3,6 +3,7 @@ const serverName = urlParam()
 let serverData = getServerData(serverName)
 const imgDomain = 'http://missa.mercylife.cc/'
 serverData.domain = imgDomain
+console.log(serverData);
 renderServer(serverData)    // 更新標題
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
