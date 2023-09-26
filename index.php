@@ -49,7 +49,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <!-- sweet alert -->
-    <!-- <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </body>
 </html>
