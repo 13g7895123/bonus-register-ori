@@ -29,8 +29,8 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- 9/24 新增 Datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
-    <link rel="stylesheet" href="BeAlert.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <!-- <link rel="stylesheet" href="BeAlert.css"> -->
 </head>
 <body class='h-[100vh] relative bg-slate-800 p-0'>
     <!-- <div class='h-full relative flex flex-col justify-center'> -->
@@ -50,9 +50,9 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <!-- sweet alert -->
-    <!-- <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script> -->
-    <script src="./assets/plugin/beAlert/jquery-3.1.1.min.js"></script>
-    <script src="BeAlert.js"></script>
+    <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script>
+    <!-- <script src="./assets/plugin/beAlert/jquery-3.1.1.min.js"></script> -->
+    <!-- <script src="BeAlert.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </body>
 </html>
