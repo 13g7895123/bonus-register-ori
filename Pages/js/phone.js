@@ -1,11 +1,3 @@
-
-Swal.fire({
-    title: 'Error!',
-    text: 'Do you want to continue',
-    icon: 'error',
-    confirmButtonText: 'Cool'
-  })
-
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
@@ -16,6 +8,7 @@ if (serverDataRes.success){
 }
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
+let alertData = { type: 0, msg: '' }
 
 /*
  * 按鈕 - 送出
@@ -36,10 +29,13 @@ $('#btn_submit').click(() => {
     const varifyRes = api(apiData)
     
     if (varifyRes.success){
-        alertMsg(varifyRes.msg)
+        alertData.type = 1
+        alertData.msg = varifyRes.msg
+        alertMsg(alertData)
         goPage(url)
     }else{
-        alertMsg(varifyRes.msg)
+        alertData.msg = varifyRes.msg
+        alertMsg(alertData)
     }    
 })
 
@@ -136,20 +132,34 @@ $('#btn_sendCode').click(() => {
             }
             const sendCodeRes = api(apiData)
             if (sendCodeRes.success){
-                alertMsg('認證碼發送成功')
+                alertData.type = 1
+                alertData.msg = '認證碼發送成功'
+                alertMsg(alertData)
             }else{
-                alertMsg(sendCodeRes.msg)
+                alertData.type = 0
+                alertData.msg = sendCodeRes.msg
+                alertMsg(alertData)
             }
         }else{
-            alertMsg('驗證碼錯誤')
+            alertData.type = 0
+            alertData.msg = '驗證碼錯誤'
+            alertMsg(alertData)
         }
     }else{
-        alertMsg('請輸入手機號碼')
+        alertData.type = 0
+        alertData.msg = '請輸入手機號碼'
+        alertMsg(alertData)
     }
 })
 
-const alertMsg = msg => {
-    alert(msg)
+const alertMsg = data => {
+    let icon = (data.type == 0) ? 'success' : 'error'
+    Swal.fire({
+        title: '系統訊息',
+        text: data.msg,
+        icon: icon,
+        timer: 2000,
+    })
 }
 
 const goPage = url => {
