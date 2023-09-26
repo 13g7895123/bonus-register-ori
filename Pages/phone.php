@@ -224,4 +224,9 @@ h2, h3, #form_area{
     right: 0;
     top: 14px;
 } 
+
+.swal2-container{
+    position: absolute;
+}
+
 </style>
