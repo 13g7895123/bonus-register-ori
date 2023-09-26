@@ -29,6 +29,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- 9/24 新增 Datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 </head>
 <body class='h-[100dvh] relative bg-slate-800 p-0'>
     <div class='h-full relative flex flex-col justify-center'>
@@ -47,5 +48,9 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <script src="https://kit.fontawesome.com/d804364582.js" crossorigin="anonymous"></script>
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="sweetalert2.min.js"></script> -->
+    <script src="sweetalert2.all.min.js"></script>
 </body>
 </html>

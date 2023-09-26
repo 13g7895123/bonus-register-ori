@@ -1,4 +1,11 @@
 
+Swal.fire({
+    title: 'Error!',
+    text: 'Do you want to continue',
+    icon: 'error',
+    confirmButtonText: 'Cool'
+  })
+
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
