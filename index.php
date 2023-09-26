@@ -29,7 +29,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- 9/24 新增 Datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-    <link rel="stylesheet" href="sweetalert2.min.css">
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
     <!-- <link rel="stylesheet" href="BeAlert.css"> -->
 </head>
 <body class='h-[100vh] relative bg-slate-800 p-0'>
