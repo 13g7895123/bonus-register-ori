@@ -31,7 +31,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
 </head>
-<body class='h-[100dvh] relative bg-slate-800 p-0'>
+<body class='h-[100vh] relative bg-slate-800 p-0'>
     <div class='h-full relative flex flex-col justify-center'>
         <!-- <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div> -->
         <!-- 顯示畫面 -->
