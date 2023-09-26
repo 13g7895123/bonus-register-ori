@@ -158,7 +158,7 @@ const alertMsg = data => {
         title: '系統訊息',
         text: data.msg,
         icon: icon,
-        position: 'center',
+        position: 'top',
         timer: 2000,
     })
 }
