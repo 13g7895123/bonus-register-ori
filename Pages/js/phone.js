@@ -1,3 +1,11 @@
+
+Swal.fire({
+    title: 'Error!',
+    text: 'Do you want to continue',
+    icon: 'error',
+    confirmButtonText: 'Cool'
+})
+
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
@@ -15,33 +23,24 @@ const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 $('#btn_submit').click(() => {
     const phone = $('#inp_phone').val()
     const url = `${registerUrl}&phone=${phone}`
-    const validationCode = $('#inp_validationCode').val()
     const code = $('#inp_code').val()   // 認證碼
-    const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
-    if (phone != ''){
-        if (validationCode != ''){
-            const apiData = {
-                url: apiUrl,
-                data: { 
-                    phone: phone,
-                    code: code
-                }
-            }
-            const varifyRes = api(apiData)
-            
-            if (varifyRes.success){
-                alertMsg(varifyRes.msg)
-                goPage(url)
-            }else{
-                alertMsg(varifyRes.msg)
-            }    
-        }else{
-            alertMsg('請輸入驗證碼')
+    const apiUrl = `/../../api/phone.php?action=varify_validation_code`
+    const apiData = {
+        url: apiUrl,
+        data: { 
+            phone: phone,
+            code: code
         }
-    }else{
-        alertMsg('請輸入手機號碼')
     }
+    const varifyRes = api(apiData)
+    
+    if (varifyRes.success){
+        alertMsg(varifyRes.msg)
+        goPage(url)
+    }else{
+        alertMsg(varifyRes.msg)
+    }    
 })
 
 function renderServer(data){

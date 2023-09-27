@@ -30,13 +30,15 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+    <!-- <link rel="stylesheet" href="BeAlert.css"> -->
 </head>
-<body class='h-[100dvh] relative bg-slate-800 p-0'>
-    <div class='h-full relative flex flex-col justify-center'>
-        <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div>
+<!-- <body class='h-[100vh] relative bg-slate-800 p-0'> -->
+<body class='h-full relative bg-slate-800 p-0'>
+    <!-- <div class='h-full relative flex flex-col justify-center'> -->
+        <!-- <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div> -->
         <!-- 顯示畫面 -->
         <?php include('Pages/' . $NOW_Page . '.php'); ?>    
-    </div>
+    <!-- </div> -->
     <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./assets/plugin/select2.min.js"></script>
     <script>
@@ -49,8 +51,9 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <!-- sweet alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- <script src="sweetalert2.min.js"></script> -->
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script>
+    <!-- <script src="./assets/plugin/beAlert/jquery-3.1.1.min.js"></script> -->
+    <!-- <script src="BeAlert.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </body>
 </html>
