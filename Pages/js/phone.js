@@ -173,13 +173,13 @@ $('#btn_sendCode').click(() => {
 
 const alertMsg = data => {
     let icon = (data.type == 1) ? 'success' : 'error'
-    Swal.fire({
-        title: '系統訊息',
-        text: data.msg,
-        icon: icon,
-        // position: 'top',
-        timer: 2000,
-    })
+    // Swal.fire({
+    //     title: '系統訊息',
+    //     text: data.msg,
+    //     icon: icon,
+    //     // position: 'top',
+    //     timer: 2000,
+    // })
 }
 
 alertMsg(alertData)
