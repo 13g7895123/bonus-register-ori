@@ -43,10 +43,16 @@
 <div class="alert_box">
     <img src='../assets/images/success.png'>
     <h2 id='alert_title'>Title</h2>
-    <p id='alert_text'>texttexttexttexttext</p>f
+    <p id='alert_text'>texttexttexttexttext</p>
 </div>
 <script>
 function openAlert(){
     $('.alert_box').addClass('open_box')
+    autoCloseAlert(2)
+}
+function autoCloseAlert(second){
+    setTimeout(() => {
+        $('.alert_box').removeClass('open_box')
+    }, second*1000)
 }
 </script>
