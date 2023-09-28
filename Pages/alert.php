@@ -20,6 +20,8 @@
     text-align: center;
     padding: 0 30px 30px;
     color: #333;
+    display: flex;
+    align-content: center;
 }
 
 .alert_box img {
