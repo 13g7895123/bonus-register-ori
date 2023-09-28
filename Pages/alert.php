@@ -1,5 +1,5 @@
 <style>
-    .container{
+    .container {
         width: 100%;
         height: 100%;
         background: #3c5077;
@@ -7,7 +7,7 @@
         align-items: center;
         justify-content: center;
     }
-    .alert_box{
+    .alert_box {
         width: 400px;
         background: #fff;
         border-radius: 6px;
