@@ -38,7 +38,7 @@
 .alert_box h2 {
     font-size: 38px;
     font-weight: 500;
-    margin: 30px 0 10px;
+    margin: 60px 0 10px;
 }
 </style>
 <!-- <div class="container"> -->
