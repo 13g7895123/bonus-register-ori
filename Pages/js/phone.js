@@ -42,11 +42,8 @@ $('#btn_submit').click(() => {
         }else{
             alertMsg('請輸入驗證碼')
         }
-<<<<<<< HEAD
     }else{
         alertMsg('請輸入手機號碼')
-    }
-=======
     }
     const varifyRes = api(apiData)
     
@@ -59,7 +56,6 @@ $('#btn_submit').click(() => {
         alertData.msg = varifyRes.msg
         alertMsg(alertData)
     }    
->>>>>>> 5d9058138ab072b2bf8049620ed01adc1bd37cb3
 })
 
 function renderServer(data){
