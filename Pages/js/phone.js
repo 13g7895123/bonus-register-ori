@@ -19,6 +19,7 @@ $('#btn_submit').click(() => {
 
     setTimeout(() => {
         $('.alert_box').css('display', 'flex')
+        $('.alert_box').css('transform', 'scale(1)')
     }, 500)
 
     const phone = $('#inp_phone').val()
