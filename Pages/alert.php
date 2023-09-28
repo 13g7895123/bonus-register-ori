@@ -1,13 +1,4 @@
 <style>
-    /* .container {
-        width: 100%;
-        height: 100%;
-        background: #3c5077;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-    } */
 .alert_box {
     width: 400px;
     height: 200px;
@@ -16,11 +7,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: transform 0.4s, center 0.4s;
     text-align: center;
     padding: 0 30px 30px;
     color: #333;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-content: center;
 }
@@ -41,10 +33,8 @@
     margin: 60px 0 10px;
 }
 </style>
-<!-- <div class="container"> -->
-    <div class="alert_box">
-        <img src='../assets/images/success.png'>
-        <h2 id='alert_title'>Title</h2>
-        <p id='alert_text'>texttexttexttexttext</p>
-    </div>
-<!-- </div> -->
+<div class="alert_box">
+    <img src='../assets/images/success.png'>
+    <h2 id='alert_title'>Title</h2>
+    <p id='alert_text'>texttexttexttexttext</p>f
+</div>
