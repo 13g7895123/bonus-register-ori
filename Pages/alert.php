@@ -10,6 +10,7 @@
     } */
 .alert_box {
     width: 400px;
+    height: 200px;
     background: #fff;
     border-radius: 6px;
     position: absolute;
