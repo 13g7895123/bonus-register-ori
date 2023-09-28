@@ -34,11 +34,11 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
 </head>
 <!-- <body class='h-[100vh] relative bg-slate-800 p-0'> -->
 <body class='h-full relative bg-slate-800 p-0'>
-    <!-- <div class='h-full relative flex flex-col justify-center'> -->
+    <div class='h-full relative flex flex-col justify-center'>
         <!-- <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div> -->
         <!-- 顯示畫面 -->
-        <?php include('Pages/' . $NOW_Page . '.php'); ?>    
-    <!-- </div> -->
+        <?php include('Pages/' . $NOW_Page . '.php'); ?>  
+    </div>
     <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./assets/plugin/select2.min.js"></script>
     <script>
