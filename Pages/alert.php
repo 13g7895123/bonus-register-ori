@@ -39,6 +39,12 @@
     top: 50%;
     transform: translate(-50%, -50%) scale(1);
 }
+
+.close_box{
+    visibility: hidden;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+}
 </style>
 <div class="alert_box">
     <img src='../assets/images/success.png'>
@@ -52,7 +58,7 @@ function openAlert(){
 }
 function autoCloseAlert(second){
     setTimeout(() => {
-        $('.alert_box').removeClass('open_box')
+        $('.alert_box').addClass('close_box')
     }, second*1000)
 }
 </script>
