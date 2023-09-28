@@ -8,13 +8,14 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.1);
-    transition: transform 0.4s, center 0.4s;
+    transition: transform 0.4s, top 0.4s;
     text-align: center;
     padding: 0 30px 30px;
     color: #333;
-    display: none;
+    display: flex;
     flex-direction: column;
     align-content: center;
+    visibility: hidden;
 }
 
 .alert_box img {
@@ -32,9 +33,20 @@
     font-weight: 500;
     margin: 60px 0 10px;
 }
+
+.open_box{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
 </style>
 <div class="alert_box">
     <img src='../assets/images/success.png'>
     <h2 id='alert_title'>Title</h2>
     <p id='alert_text'>texttexttexttexttext</p>f
 </div>
+<script>
+function openAlert(){
+    $('.alert_box').addClass('open_box')
+}
+</script>
