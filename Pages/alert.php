@@ -22,7 +22,7 @@
     color: #333;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-content: center;
 }
 
 .alert_box img {
