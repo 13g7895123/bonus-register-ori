@@ -21,7 +21,8 @@
     padding: 0 30px 30px;
     color: #333;
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .alert_box img {
