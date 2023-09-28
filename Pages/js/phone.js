@@ -17,7 +17,9 @@ let alertData = { type: 0, msg: '' }
 */
 $('#btn_submit').click(() => {
 
-    showAlert
+    setTimeout(() => {
+        $('.alert_box').css('display', 'flex')
+    }, 500)
 
     const phone = $('#inp_phone').val()
     const url = `${registerUrl}&phone=${phone}`
