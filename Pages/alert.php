@@ -29,7 +29,7 @@
 }
 
 .alert_box h3 {
-    font-size: 38px;
+    font-size: 30px;
     font-weight: 500;
     margin: 60px 0 10px;
 }
