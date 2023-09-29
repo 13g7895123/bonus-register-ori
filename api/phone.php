@@ -29,11 +29,8 @@ if (isset($_GET['action'])){
                 // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
                 $msg_num = SYSAction::SQL_Data('system_user', 'id', $system_user_id, 'msg_num');
 
-                echo 'test2';
-
                 if ($msg_num > 0){
                     // 發送驗證碼
-                    echo 'test3';
                     $validation_code = tools::validation_code();
                     $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
                     $sms_result = json_decode(tools::omgms($phone, $msg), true);
