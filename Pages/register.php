@@ -238,6 +238,7 @@ h2, h3, #form_area{
     left: auto !important;
     font-size: 0.8rem !important;
     color: red !important;
+    transform: none !important;
     right: 0;
 }
 </style>
