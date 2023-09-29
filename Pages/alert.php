@@ -51,4 +51,4 @@
     <h2 id='alert_title'>Title</h2>
     <p id='alert_text'>texttexttexttexttext</p>
 </div>
-<script src='./js/alert.js'></script>
+<script src='./Pages/js/alert.js'></script>
