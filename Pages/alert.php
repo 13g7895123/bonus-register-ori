@@ -48,7 +48,7 @@
 </style>
 <div class="alert_box">
     <img id='alert_img'>
-    <h2 id='alert_title'>Title</h2>
-    <p id='alert_text'>texttexttexttexttext</p>
+    <h3 id='alert_title'></h3>
+    <p id='alert_text'></p>
 </div>
 <script src='./Pages/js/alert.js'></script>

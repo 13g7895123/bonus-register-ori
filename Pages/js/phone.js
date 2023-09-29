@@ -157,7 +157,6 @@ $('#btn_sendCode').click(() => {
             alertMsg(alertData)
         }
     }else{
-        alertData.type = 0
         alertData.msg = '請輸入手機號碼'
         alertMsg(alertData)
     }
@@ -165,7 +164,10 @@ $('#btn_sendCode').click(() => {
 
 const alertMsg = data => {
     let icon = (data.type == 1) ? 'success' : 'error'
-    const openAlertData = { text: data.msg }
+    const openAlertData = { 
+        icon: icon,
+        text: data.msg,
+    }
     openAlert(openAlertData)
 }
 
