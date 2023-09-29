@@ -22,24 +22,29 @@ $('#btn_submit').click(() => {
 
     if (phone != ''){
         if (validationCode != ''){
-            const apiData = {
-                url: apiUrl,
-                data: { 
-                    phone: phone,
-                    code: code
+            if (code != ''){
+                const apiData = {
+                    url: apiUrl,
+                    data: { 
+                        phone: phone,
+                        code: code
+                    }
                 }
-            }
-            const varifyRes = api(apiData)
-            
-            if (varifyRes.success){
-                alertData.type = 0
-                alertData.msg = varifyRes.msg
-                alertMsg(alertData)
-                goPage(url)
+                const varifyRes = api(apiData)
+                
+                if (varifyRes.success){
+                    alertData.type = 0
+                    alertData.msg = varifyRes.msg
+                    alertMsg(alertData)
+                    goPage(url)
+                }else{
+                    alertData.msg = varifyRes.msg
+                    alertMsg(alertData)
+                }    
             }else{
-                alertData.msg = varifyRes.msg
+                alertData.msg = '請輸入認證碼'
                 alertMsg(alertData)
-            }    
+            }            
         }else{
             alertData.msg = '請輸入驗證碼'
             alertMsg(alertData)
