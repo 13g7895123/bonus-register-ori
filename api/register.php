@@ -73,9 +73,6 @@ if (isset($_GET['action'])){
                 $return['success'] = false;
                 $return['msg'] = '輸入資料有誤，請重新確認';
             }
-
-            $return['test'] = $_POST;
-
             echo json_encode($return);
             break;
     }

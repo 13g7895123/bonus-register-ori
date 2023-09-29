@@ -156,7 +156,9 @@ function getServerData (data){
         }
     }
     const serverData = api(apiData)
-    return serverData
+    if (serverData.success){
+        return serverData.data
+    }
 }
 
 function api (data){
@@ -168,9 +170,7 @@ function api (data){
         dataType: "JSON",
         async: false,
         success: function (response) {
-            if (response.success){
-                responseData = response.data
-            }
+            responseData = response
         }
     });
     return responseData
