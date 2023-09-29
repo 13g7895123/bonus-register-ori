@@ -23,9 +23,8 @@ $('#btn_submit').click(() => {
     const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
     if (phone != ''){
-        let apiData = {}
         if (validationCode != ''){
-            apiData = {
+            const apiData = {
                 url: apiUrl,
                 data: { 
                     phone: phone,
@@ -46,17 +45,6 @@ $('#btn_submit').click(() => {
     }else{
         alertMsg('請輸入手機號碼')
     }
-    const varifyRes = api(apiData)
-    
-    if (varifyRes.success){
-        alertData.type = 1
-        alertData.msg = varifyRes.msg
-        alertMsg(alertData)
-        goPage(url)
-    }else{
-        alertData.msg = varifyRes.msg
-        alertMsg(alertData)
-    }    
 })
 
 function renderServer(data){
