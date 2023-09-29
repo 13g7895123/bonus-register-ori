@@ -240,5 +240,6 @@ h2, h3, #form_area{
     color: red !important;
     transform: none !important;
     right: 0;
+    top: 30px;
 }
 </style>
