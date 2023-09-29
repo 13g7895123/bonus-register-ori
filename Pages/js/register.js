@@ -41,6 +41,7 @@ $('#inp_password').focus(() => {
 })
 
 $('#inp_password').blur(() => {
+    $('#col_password').text('密碼')
     const passwordRes = passwordRule()
     if (passwordRes.success == 0){
         columnValidation = 0
