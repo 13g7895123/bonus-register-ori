@@ -26,8 +26,9 @@ $('#btn_submit').click(() => {
     const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
     if (phone != ''){
+        let apiData = {}
         if (validationCode != ''){
-            const apiData = {
+            apiData = {
                 url: apiUrl,
                 data: { 
                     phone: phone,
