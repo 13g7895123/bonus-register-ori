@@ -18,6 +18,8 @@ $('#inp_account').blur(() => {
     const accountRes = accountRule()
     if (accountRes.success == 0){
         $('#notice_account').text(accountRes.msg)
+    }else{
+        $('#notice_account').text('')
     }
 })
 
@@ -45,6 +47,8 @@ $('#inp_password').blur(() => {
     const passwordRes = passwordRule()
     if (passwordRes.success == 0){
         $('#notice_password').text(passwordRes.msg)
+    }else{
+        $('#notice_password').text('')
     }
 })
 
