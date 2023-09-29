@@ -10,7 +10,7 @@ $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
 /* 輸入帳號 */
 $('#inp_account').focus(() => {
-    $(this).siblings().find('.column').text('遊戲帳號(長度需介於5~12個字母之間)')
+    $(this).siblings().find('span').text('遊戲帳號(長度需介於5~12個字母之間)')
 })
 /* End 輸入帳號 */
 
