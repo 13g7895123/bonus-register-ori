@@ -43,6 +43,7 @@ $('#btn_submit').click(() => {
             alertMsg('請輸入驗證碼')
         }
     }else{
+        console.log('請輸入手機號碼');
         alertMsg('請輸入手機號碼')
     }
 })
