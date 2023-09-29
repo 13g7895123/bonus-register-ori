@@ -16,9 +16,6 @@ let alertData = { type: 0, msg: '' }
  * 按鈕 - 送出
 */
 $('#btn_submit').click(() => {
-
-    openAlert()
-
     // const phone = $('#inp_phone').val()
     // const url = `${registerUrl}&phone=${phone}`
     // const validationCode = $('#inp_validationCode').val()
@@ -177,13 +174,8 @@ $('#btn_sendCode').click(() => {
 
 const alertMsg = data => {
     let icon = (data.type == 1) ? 'success' : 'error'
-    // Swal.fire({
-    //     title: '系統訊息',
-    //     text: data.msg,
-    //     icon: icon,
-    //     // position: 'top',
-    //     timer: 2000,
-    // })
+    const openAlertData = { text: data.msg }
+    openAlert(openAlertData)
 }
 
 alertMsg(alertData)
