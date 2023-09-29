@@ -6,8 +6,12 @@ renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 let columnValidation = 1      // 預設1為成功，只要有一項驗證沒過就設為0
+let alertData = { type: 0, msg: '' }
 
-$("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
+$("#datepicker").datepicker({ 
+    dateFormat: 'yy/mm/dd',
+    maxDate: 0
+});
 
 /* 欄位輸入驗證 */
 /* 輸入帳號 */
@@ -68,44 +72,52 @@ const passwordRule = () => {
 /* End 輸入密碼 */
 /* End 欄位輸入驗證 */
 
-
-
 $('#btn-submit').click(() => {
-    const account = $('#inp_account').val()
-    const password = $('#inp_password').val()
-    const checkPassword = $('#inp_checkPassword').val()
-    const birthday = $("#datepicker").val()
-    const validationCode = $('#inp_validationCode').val()
+    if (columnValidation == 1){
+        const account = $('#inp_account').val()
+        const password = $('#inp_password').val()
+        const checkPassword = $('#inp_checkPassword').val()
+        const birthday = $("#datepicker").val()
+        const validationCode = $('#inp_validationCode').val()
 
-    if (validationCode == code){
-        if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
-            if (password == checkPassword){
-                const apiData = {
-                    url: '/../../api/register.php?action=register',
-                    data: {
-                        server: serverName,
-                        phone: phone,
-                        account: account,
-                        password: password,
-                        birthday: birthday
+        if (validationCode == code){
+            if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
+                if (password == checkPassword){
+                    const apiData = {
+                        url: '/../../api/register.php?action=register',
+                        data: {
+                            server: serverName,
+                            phone: phone,
+                            account: account,
+                            password: password,
+                            birthday: birthday
+                        }
                     }
-                }
-                const response = api(apiData)
-                if (response.success){
-                    alertMsg('註冊成功')
-                    // 跳轉頁面
+                    const response = api(apiData)
+                    if (response.success){
+                        alertData.msg = '註冊成功'
+                        alertMsg(alertData)
+                        // 跳轉頁面
+                    }else{
+                        alertData.msg = '註冊失敗'
+                        alertMsg(alertData)
+                    }
                 }else{
-                    alertMsg('註冊失敗')
-                }
+                    alertData.msg = '密碼不相符'
+                    alertMsg(alertData)
+                }   // End password check
             }else{
-                alertMsg('密碼不相符')
-            }   // End password check
+                alertData.msg = '請填入正確的資料'
+                alertMsg(alertData)
+            }  // End column not empty
         }else{
-            alertMsg('請填入正確的資料')
-        }  // End column not empty
+            alertData.msg = '驗證碼錯誤'
+            alertMsg(alertData)
+        }   // End validation code check
     }else{
-        alertMsg('驗證碼錯誤')
-    }   // End validation code check
+        alertData.msg = '請依照欄位指示填寫正確資料'
+        alertMsg(alertData)
+    }   // End validation columns
 })
 
 $('#btn-cancel-register').click(() => {
