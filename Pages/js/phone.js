@@ -22,6 +22,8 @@ $('#btn_submit').click(() => {
     const code = $('#inp_code').val()   // 認證碼
     const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
+    console.log('click submit');
+
     if (phone != ''){
         if (validationCode != ''){
             const apiData = {
