@@ -10,7 +10,7 @@ function openAlert(data){
     $('.alert_box').css('visibility', 'visible')
     $('.alert_box').css('transform', 'translate(-50%, -50%) scale(1.1)')
 
-    // autoCloseAlert(data.delay)  // 關閉視窗
+    autoCloseAlert(data.delay)  // 關閉視窗
 }
 function autoCloseAlert(second){
     setTimeout(() => {
