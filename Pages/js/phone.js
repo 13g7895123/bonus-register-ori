@@ -10,8 +10,6 @@ if (serverDataRes.success){
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 let alertData = { type: 0, msg: '' }
 
-
-
 /*
  * 按鈕 - 送出
 */
@@ -164,6 +162,7 @@ $('#btn_sendCode').click(() => {
 })
 
 const alertMsg = data => {
+    alert(data.msg)
     let icon = (data.type == 1) ? 'success' : 'error'
     const openAlertData = { text: data.msg }
     openAlert(openAlertData)
