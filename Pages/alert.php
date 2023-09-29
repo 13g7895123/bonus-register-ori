@@ -14,7 +14,7 @@
     color: #333;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
     visibility: hidden;
 }
 
