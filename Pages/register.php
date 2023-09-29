@@ -7,7 +7,7 @@
             <div class="inp_group mt-3">
                 <input id='inp_account' @blur="accountRule" required>
                 <span class="column">遊戲帳號</span>
-                <!-- <span class="notice text-red">{{ accountValidation }}</span> -->
+                <span id='notice_account' class="notice text-red"></span>
                 <i></i>
             </div>
             <div class="inp_group mt-2">

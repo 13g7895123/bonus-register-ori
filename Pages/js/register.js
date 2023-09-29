@@ -5,20 +5,29 @@ serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
+let columnValidation = 1      // 預設1為成功，只要有一項驗證沒過就設為0
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
 /* 輸入帳號 */
-$('#inp_account').focus(() => {
-    $(this).siblings().find('span').text('遊戲帳號(長度需介於5~12個字母之間)')
+$('#inp_account').blur(() => {
+    const accountRes = accountRule()
+    if (accountRes.success == 0){
+        columnValidation = 0
+        $('#notice_account').text(accountRes.msg)
+    }
 })
 /* End 輸入帳號 */
 
 const accountRule = () => {
-    const account = $('#inp_account').val()
+    const account = $('#inp_account').val().trim()
     let ruleValidation = { success: 0 }
     if (account == ''){
         ruleValidation.msg = '請輸入帳號'
+    }else if (account.length < 5 || account.length > 12){
+        ruleValidation.msg = '長度請介於5~12個字母之間'
+    }else{
+        ruleValidation.success = 1
     }
     return ruleValidation
 }
