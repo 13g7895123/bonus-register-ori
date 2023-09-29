@@ -15,6 +15,9 @@ $('#inp_account').blur(() => {
     if (accountRes.success == 0){
         columnValidation = 0
         $('#notice_account').text(accountRes.msg)
+    }else{
+        columnValidation = 1
+        $('#notice_account').text('')
     }
 })
 /* End 輸入帳號 */
