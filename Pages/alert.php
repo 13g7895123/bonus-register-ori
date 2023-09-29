@@ -30,7 +30,7 @@
 
 .alert_box h3 {
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 800;
     margin: 60px 0 10px;
 }
 
