@@ -8,6 +8,21 @@ const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
+/* 輸入帳號 */
+$('#inp_account').focus(() => {
+    $(this).siblings().find('.column').text('遊戲帳號(長度需介於5~12個字母之間)')
+})
+/* End 輸入帳號 */
+
+const accountRule = () => {
+    const account = $('#inp_account').val()
+    let ruleValidation = { success: 0 }
+    if (account == ''){
+        ruleValidation.msg = '請輸入帳號'
+    }
+    return ruleValidation
+}
+
 $('#btn-submit').click(() => {
     const account = $('#inp_account').val()
     const password = $('#inp_password').val()
@@ -127,6 +142,11 @@ function createCode(){
 
 createCode()
 
-const alertMsg = msg => {
-    alert(msg)
+const alertMsg = data => {
+    let icon = (data.type == 1) ? 'success' : 'error'
+    const openAlertData = { 
+        icon: icon,
+        text: data.msg,
+    }
+    openAlert(openAlertData)
 }
