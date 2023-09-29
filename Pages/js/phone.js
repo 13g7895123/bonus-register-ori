@@ -36,7 +36,9 @@ $('#btn_submit').click(() => {
                     alertData.type = 0
                     alertData.msg = varifyRes.msg
                     alertMsg(alertData)
-                    goPage(url)
+                    setTimeout(() => {
+                        goPage(url)
+                    }, 1000)                    
                 }else{
                     alertData.msg = varifyRes.msg
                     alertMsg(alertData)
@@ -169,7 +171,6 @@ $('#btn_sendCode').click(() => {
 
 const alertMsg = data => {
     let icon = (data.type == 1) ? 'success' : 'error'
-    console.log(icon);
     const openAlertData = { 
         icon: icon,
         text: data.msg,
