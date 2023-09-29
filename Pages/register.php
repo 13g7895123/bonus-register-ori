@@ -235,6 +235,9 @@ h2, h3, #form_area{
 
 .notice{
     position: absolute !important;
+    left: none !important;
+    font-size: 0.8rem !important;
+    color: red !important;
     right: 0;
 }
 </style>
