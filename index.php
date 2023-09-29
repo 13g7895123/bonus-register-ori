@@ -39,7 +39,6 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
         <!-- 顯示畫面 -->
         <?php include('Pages/' . $NOW_Page . '.php'); ?>  
         <!-- 載入通知畫面 -->
-        <?php include('Pages/alert.php'); ?>  
     </div>
     <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="./assets/plugin/select2.min.js"></script>
