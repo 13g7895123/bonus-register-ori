@@ -5,7 +5,6 @@ serverData.domain = imgDomain
 renderServer(serverData)    // 更新標題
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
-let columnValidation = 1      // 預設1為成功，只要有一項驗證沒過就設為0
 let alertData = { type: 0, msg: '' }
 
 $("#datepicker").datepicker({ 
@@ -18,11 +17,7 @@ $("#datepicker").datepicker({
 $('#inp_account').blur(() => {
     const accountRes = accountRule()
     if (accountRes.success == 0){
-        columnValidation = 0
         $('#notice_account').text(accountRes.msg)
-    }else{
-        columnValidation = 1
-        $('#notice_account').text('')
     }
 })
 
@@ -49,11 +44,7 @@ $('#inp_password').blur(() => {
     $('#col_password').text('密碼')
     const passwordRes = passwordRule()
     if (passwordRes.success == 0){
-        columnValidation = 0
         $('#notice_password').text(passwordRes.msg)
-    }else{
-        columnValidation = 1
-        $('#notice_password').text('')
     }
 })
 
@@ -70,9 +61,22 @@ const passwordRule = () => {
     return ruleValidation
 }
 /* End 輸入密碼 */
+
+const columnsValidation = () => {
+    let result = 0      // 預設0為失敗，皆通過才為1成功
+    const accountRes = accountRule()
+    const passwordRes = passwordRule()
+    if (accountRes.success == 1 && passwordRes.success == 1){
+        result = 1
+    }else{
+        result = 0
+    }
+    return result
+}
 /* End 欄位輸入驗證 */
 
 $('#btn-submit').click(() => {
+    const columnValidation = columnsValidation()
     if (columnValidation == 1){
         const account = $('#inp_account').val()
         const password = $('#inp_password').val()
