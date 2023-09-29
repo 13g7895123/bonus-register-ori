@@ -13,7 +13,7 @@
             <div class="inp_group mt-2">
                 <input id='inp_password' type="password" required>
                 <span id='col_password' class="column">密碼</span>
-                <p id='notice_password' class="notice"></>
+                <p id='notice_password' class="notice"></p>
                 <i></i>
             </div>
             <div class="inp_group mt-2">
