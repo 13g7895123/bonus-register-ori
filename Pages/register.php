@@ -234,7 +234,7 @@ h2, h3, #form_area{
 }
 
 .notice{
-    position: absolute;
+    position: absolute !important;
     right: 0;
 }
 </style>
