@@ -38,6 +38,7 @@ const accountRule = () => {
 /* 輸入密碼 */
 $('#inp_password').focus(() => {
     $('#col_password').text('密碼(區分英文大小寫,只能包含英文字母與數字)')
+    $('#col_password').css('white-space', 'nowrap')
 })
 
 $('#inp_password').blur(() => {
