@@ -16,6 +16,7 @@
     flex-direction: column;
     align-content: center;
     visibility: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .alert_box img {
@@ -31,19 +32,7 @@
 .alert_box h3 {
     font-size: 30px;
     font-weight: 800;
-    margin: 60px 0 10px;
-}
-
-.open_box{
-    visibility: visible;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
-}
-
-.close_box{
-    visibility: hidden;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
+    margin: 75px 0 10px;
 }
 </style>
 <div class="alert_box">
