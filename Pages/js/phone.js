@@ -20,8 +20,6 @@ $('#btn_submit').click(() => {
     const code = $('#inp_code').val()   // 認證碼
     const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
-    console.log('click submit');
-
     if (phone != ''){
         if (validationCode != ''){
             const apiData = {
@@ -34,17 +32,21 @@ $('#btn_submit').click(() => {
             const varifyRes = api(apiData)
             
             if (varifyRes.success){
-                alertMsg(varifyRes.msg)
+                alertData.type = 0
+                alertData.msg = varifyRes.msg
+                alertMsg(alertData)
                 goPage(url)
             }else{
-                alertMsg(varifyRes.msg)
+                alertData.msg = varifyRes.msg
+                alertMsg(alertData)
             }    
         }else{
-            alertMsg('請輸入驗證碼')
+            alertData.msg = '請輸入驗證碼'
+            alertMsg(alertData)
         }
     }else{
-        console.log('請輸入手機號碼');
-        alertMsg('請輸入手機號碼')
+        alertData.msg = '請輸入手機號碼'
+        alertMsg(alertData)
     }
 })
 
