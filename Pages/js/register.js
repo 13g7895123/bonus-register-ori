@@ -103,6 +103,7 @@ $('#btn-submit').click(() => {
                     }
                     const response = api(apiData)
                     if (response.success){
+                        alertData.type = 1
                         alertData.msg = '註冊成功'
                         alertMsg(alertData)
                         // 跳轉頁面
