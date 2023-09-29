@@ -59,7 +59,7 @@ function openAlert(){
 }
 function autoCloseAlert(second){
     setTimeout(() => {
-        $('.alert_box').css('transform', 'scale(0.1)')
+        $('.alert_box').css('transform', 'translate(-50%, -50%) scale(0.1)')
         $('.alert_box').css('visibility', 'hidden')
     }, second*1000)
 }
