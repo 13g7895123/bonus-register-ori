@@ -53,9 +53,9 @@
 </div>
 <script>
 function openAlert(data){
-    data.title = (!isset(data.title)) ? '系統提示' : data.title
-    data.text = (!isset(data.text)) ? '' : data.text
-    data.delay = (!isset(data.delay)) ? 1.5 : data.delay
+    data.title = (data.title == '') ? '系統提示' : data.title
+    data.text = (data.text == '') ? '' : data.text
+    data.delay = (data.delay == '') ? 1.5 : data.delay
 
     $('#alert_title').text(data.title)
     $('#alert_text').text(data.text)
