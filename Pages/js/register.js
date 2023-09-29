@@ -15,10 +15,10 @@ $('#inp_account').blur(() => {
     const accountRes = accountRule()
     if (accountRes.success == 0){
         columnValidation = 0
-        $(this).siblings().prev('.notice').text(accountRes.msg)
+        $('#notice_account').text(accountRes.msg)
     }else{
         columnValidation = 1
-        $(this).sibling().prev('p.notice').text('')
+        $('#notice_account').text('')
     }
 })
 
@@ -36,6 +36,10 @@ const accountRule = () => {
 }
 /* End 輸入帳號 */
 /* 輸入密碼 */
+$('#inp_password').focus(() => {
+    $('#col_password').text('密碼(區分英文大小寫,只能包含英文字母與數字)')
+})
+
 $('#inp_password').blur(() => {
     const passwordRes = passwordRule()
     if (passwordRes.success == 0){
@@ -51,9 +55,9 @@ const passwordRule = () => {
     const password = $('#inp_password').val().trim()
     let ruleValidation = { success: 0 }
     if (password == ''){
-        ruleValidation.msg = '請輸入帳號'
-    }else if (password.length < 5 || password.length > 12){
-        ruleValidation.msg = '長度請介於5~12個字母之間'
+        ruleValidation.msg = '請輸入密碼'
+    }else if (password.length < 8 || password.length > 13){
+        ruleValidation.msg = '長度請介於8~13個字母之間'
     }else{
         ruleValidation.success = 1
     }

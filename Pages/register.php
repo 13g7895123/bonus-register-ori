@@ -7,13 +7,13 @@
             <div class="inp_group mt-3">
                 <input id='inp_account' @blur="accountRule" required>
                 <span class="column">遊戲帳號</span>
-                <p class="notice"></p>
+                <p id='notice_account' class="notice text-red"></p>
                 <i></i>
             </div>
             <div class="inp_group mt-2">
-                <input id='inp_password' @blur="passwordRule" @valid="passwordRule" @focus="passwordFocus" type="password" required>
+                <input id='inp_password' type="password" required>
                 <span class="column">密碼</span>
-                <p class="notice"></p>
+                <p id='notice_password' class="notice"></>
                 <i></i>
             </div>
             <div class="inp_group mt-2">
