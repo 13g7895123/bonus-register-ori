@@ -53,6 +53,7 @@ if (isset($_GET['action'])){
                         // 確認寫入成功
                         if ($insertId > 0){
                             $return['success'] = true;
+                            $return['msg_num'] = $msg_num;
                             $return['msg'] = '認證碼已發送至手機';
                         }else{
                             $return['success'] = false;
