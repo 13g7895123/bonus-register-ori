@@ -9,18 +9,18 @@ let columnValidation = 1      // 預設1為成功，只要有一項驗證沒過�
 
 $("#datepicker").datepicker({ dateFormat: 'yy/mm/dd' });
 
+/* 欄位輸入驗證 */
 /* 輸入帳號 */
 $('#inp_account').blur(() => {
     const accountRes = accountRule()
     if (accountRes.success == 0){
         columnValidation = 0
-        $('#notice_account').text(accountRes.msg)
+        $(this).sibling().prev('p.notice').text(accountRes.msg)
     }else{
         columnValidation = 1
-        $('#notice_account').text('')
+        $(this).sibling().prev('p.notice').text('')
     }
 })
-/* End 輸入帳號 */
 
 const accountRule = () => {
     const account = $('#inp_account').val().trim()
@@ -34,6 +34,35 @@ const accountRule = () => {
     }
     return ruleValidation
 }
+/* End 輸入帳號 */
+/* 輸入密碼 */
+$('#inp_password').blur(() => {
+    const passwordRes = passwordRule()
+    if (passwordRes.success == 0){
+        columnValidation = 0
+        $('#notice_password').text(passwordRes.msg)
+    }else{
+        columnValidation = 1
+        $('#notice_password').text('')
+    }
+})
+
+const passwordRule = () => {
+    const password = $('#inp_password').val().trim()
+    let ruleValidation = { success: 0 }
+    if (password == ''){
+        ruleValidation.msg = '請輸入帳號'
+    }else if (password.length < 5 || password.length > 12){
+        ruleValidation.msg = '長度請介於5~12個字母之間'
+    }else{
+        ruleValidation.success = 1
+    }
+    return ruleValidation
+}
+/* End 輸入密碼 */
+/* End 欄位輸入驗證 */
+
+
 
 $('#btn-submit').click(() => {
     const account = $('#inp_account').val()
