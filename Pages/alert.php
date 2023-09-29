@@ -7,8 +7,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    transition: all .2s ease-in-out;
     transform: translate(-50%, -50%) scale(0.1);
-    transition: transform 0.4s, top 0.4s;
     text-align: center;
     padding: 0 30px 30px;
     color: #333;
@@ -53,13 +53,12 @@
 </div>
 <script>
 function openAlert(){
-    $('.alert_box').addClass('open_box')
+    $('.alert_box').css('transform', 'scale(1.1)')
     autoCloseAlert(2)
 }
 function autoCloseAlert(second){
     setTimeout(() => {
-        $('.alert_box').removeClass('open_box')
-        $('.alert_box').addClass('close_box')
+        $('.alert_box').css('transform', 'scale(0.1)')
     }, second*1000)
 }
 </script>
