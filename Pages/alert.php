@@ -54,7 +54,7 @@
 <script>
 function openAlert(){
     $('.alert_box').css('transform', 'scale(1.1)')
-    autoCloseAlert(2)
+    // autoCloseAlert(2)
 }
 function autoCloseAlert(second){
     setTimeout(() => {
