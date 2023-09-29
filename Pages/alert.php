@@ -47,7 +47,7 @@
 }
 </style>
 <div class="alert_box">
-    <img src='../assets/images/success.png'>
+    <img id='alert_img'>
     <h2 id='alert_title'>Title</h2>
     <p id='alert_text'>texttexttexttexttext</p>
 </div>

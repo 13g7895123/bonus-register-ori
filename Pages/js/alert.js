@@ -1,8 +1,10 @@
 function openAlert(data){
+    data.type = (typeof(data.type) == 'undefined') ? 'error' : 'success'
     data.title = (typeof(data.title) == 'undefined') ? '系統提示' : data.title
     data.text = (typeof(data.text) == 'undefined') ? '' : data.text
     data.delay = (typeof(data.delay) == 'undefined') ? 1.5 : data.delay
 
+    $('#alert_img').attr('src', `../assets/images/${data.type}.png`)
     $('#alert_title').text(data.title)
     $('#alert_text').text(data.text)
 
