@@ -16,47 +16,47 @@ let alertData = { type: 0, msg: '' }
  * 按鈕 - 送出
 */
 $('#btn_submit').click(() => {
-    // const phone = $('#inp_phone').val()
-    // const url = `${registerUrl}&phone=${phone}`
-    // const validationCode = $('#inp_validationCode').val()
-    // const code = $('#inp_code').val()   // 認證碼
-    // const apiUrl = `/../../api/phone.php?action=varify_validation_code`
+    const phone = $('#inp_phone').val()
+    const url = `${registerUrl}&phone=${phone}`
+    const validationCode = $('#inp_validationCode').val()
+    const code = $('#inp_code').val()   // 認證碼
+    const apiUrl = `/../../api/phone.php?action=varify_validation_code`
 
-    // if (phone != ''){
-    //     let apiData = {}
-    //     if (validationCode != ''){
-    //         apiData = {
-    //             url: apiUrl,
-    //             data: { 
-    //                 phone: phone,
-    //                 code: code
-    //             }
-    //         }
-    //         const varifyRes = api(apiData)
+    if (phone != ''){
+        let apiData = {}
+        if (validationCode != ''){
+            apiData = {
+                url: apiUrl,
+                data: { 
+                    phone: phone,
+                    code: code
+                }
+            }
+            const varifyRes = api(apiData)
             
-    //         if (varifyRes.success){
-    //             alertMsg(varifyRes.msg)
-    //             goPage(url)
-    //         }else{
-    //             alertMsg(varifyRes.msg)
-    //         }    
-    //     }else{
-    //         alertMsg('請輸入驗證碼')
-    //     }
-    // }else{
-    //     alertMsg('請輸入手機號碼')
-    // }
-    // const varifyRes = api(apiData)
+            if (varifyRes.success){
+                alertMsg(varifyRes.msg)
+                goPage(url)
+            }else{
+                alertMsg(varifyRes.msg)
+            }    
+        }else{
+            alertMsg('請輸入驗證碼')
+        }
+    }else{
+        alertMsg('請輸入手機號碼')
+    }
+    const varifyRes = api(apiData)
     
-    // if (varifyRes.success){
-    //     alertData.type = 1
-    //     alertData.msg = varifyRes.msg
-    //     alertMsg(alertData)
-    //     goPage(url)
-    // }else{
-    //     alertData.msg = varifyRes.msg
-    //     alertMsg(alertData)
-    // }    
+    if (varifyRes.success){
+        alertData.type = 1
+        alertData.msg = varifyRes.msg
+        alertMsg(alertData)
+        goPage(url)
+    }else{
+        alertData.msg = varifyRes.msg
+        alertMsg(alertData)
+    }    
 })
 
 function renderServer(data){
@@ -177,8 +177,6 @@ const alertMsg = data => {
     const openAlertData = { text: data.msg }
     openAlert(openAlertData)
 }
-
-alertMsg(alertData)
 
 const goPage = url => {
     $(location).attr('href', url);
