@@ -15,7 +15,7 @@ $('#inp_account').blur(() => {
     const accountRes = accountRule()
     if (accountRes.success == 0){
         columnValidation = 0
-        $(this).siblings().prev('p.notice').text(accountRes.msg)
+        $(this).prev('p.notice').text(accountRes.msg)
     }else{
         columnValidation = 1
         $(this).sibling().prev('p.notice').text('')
