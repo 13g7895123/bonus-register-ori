@@ -107,6 +107,9 @@ $('#btn-submit').click(() => {
                         alertData.msg = '註冊成功'
                         alertMsg(alertData)
                         // 跳轉頁面
+                        setTimeout(() => {
+                            $(location).attr('href', phoneUrl);
+                        }, 3000)
                     }else{
                         alertData.msg = '註冊失敗'
                         alertMsg(alertData)
