@@ -127,8 +127,9 @@ function createCode(){
 createCode()
 
 $('#identifyCode').click(() => {
-    $('#inp_validationCode').val('').focus()
+    $('#inp_validationCode').val('')
     createCode()
+    $('#inp_validationCode').focus()
 })
 
 /*
