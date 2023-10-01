@@ -87,6 +87,7 @@ class tools
         return $post_data;
     }
 
+    // 登入紀錄
     public static function login_log($data){
 
         date_default_timezone_set("Asia/Taipei");   // 設定時區
@@ -100,6 +101,7 @@ class tools
         return;
     }
 
+    // 取得伺服器資料
     public static function server_data($data){
         $server_text = $data;
         $server_code_name = explode(']', explode('[', $server_text)[1])[0];
@@ -110,6 +112,12 @@ class tools
         $return_data['server_name'] = $server_name;
         $return_data['server_code_name'] = $server_code_name;
         return $return_data;
+    }
+
+    // 生成token
+    public static function token(){
+        $token = time();
+        return $token;
     }
 
     public static function test()

@@ -125,6 +125,13 @@ if (isset($_GET['action'])){
 
             echo json_encode($return);
             break;
+        case 'token':
+            $token = tools::token();
+            $return['success'] = true;
+            $return['data'] = $token;
+
+            echo json_encode($return);
+            break;
     }
 }
 

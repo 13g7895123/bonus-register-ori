@@ -79,6 +79,16 @@ function getServerData (data){
     return serverData
 }
 
+// 取得token
+function getTokenData (){
+    const apiUrl = `/../../api/phone.php?action=token`
+    const apiData = {
+        url: apiUrl,
+    }
+    const tokenData = api(apiData)
+    return tokenData
+}
+
 function api (data){
     let responseData
     $.ajax({
