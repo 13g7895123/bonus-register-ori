@@ -116,7 +116,7 @@ class tools
 
     // 生成token
     public static function token(){
-        $token = time();
+        $token = md5(time());
         return $token;
     }
 
