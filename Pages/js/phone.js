@@ -6,6 +6,10 @@ if (serverDataRes.success){
     serverData.domain = imgDomain
     renderServer(serverData)    // 更新標題
 }
+let tokenDataRes = getTokenData()
+if (tokenDataRes.success){
+    console.log(tokenDataRes.data);
+}
 
 const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
 let alertData = { type: 0, msg: '' }
