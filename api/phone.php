@@ -127,8 +127,22 @@ if (isset($_GET['action'])){
             break;
         case 'token':
             $token = tools::token();
-            $return['success'] = true;
-            $return['data'] = $token;
+            $ip = tools::ip();
+
+            MYPDO::$table = 'token_log';
+            MYPDO::$data = [
+                'ip' => $ip,
+                'token' => $token,
+                'create_at' => date("Y-m-d H:i:s")
+            ];
+            $insert_id = MYPDO::insert();
+
+            if ($insert_id > 0){
+                $return['success'] = true;
+                $return['data'] = $token;
+            }else{
+                $return['success'] = false;
+            }
 
             echo json_encode($return);
             break;

@@ -6,12 +6,13 @@ if (serverDataRes.success){
     serverData.domain = imgDomain
     renderServer(serverData)    // 更新標題
 }
+let token = ''
 let tokenDataRes = getTokenData()
 if (tokenDataRes.success){
-    console.log(tokenDataRes.data);
+    token = tokenDataRes.data;
 }
 
-const registerUrl = `?page=register&sn=${serverName}`   // 註冊網址
+const registerUrl = `?page=register&sn=${serverName}&token=${token}`   // 註冊網址
 let alertData = { type: 0, msg: '' }
 
 /*
@@ -31,7 +32,8 @@ $('#btn_submit').click(() => {
                     url: apiUrl,
                     data: { 
                         phone: phone,
-                        code: code
+                        code: code,
+                        token: token
                     }
                 }
                 const varifyRes = api(apiData)
