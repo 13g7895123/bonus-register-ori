@@ -208,6 +208,7 @@ if (isset($_GET['action'])){
                     'create_at_timestamp' => time(),
                     'create_at' => date("Y-m-d H:i:s")
                 ];
+                MYPDO::$where = ['ip' => $ip];
                 $update_id = MYPDO::save();
             }            
 
