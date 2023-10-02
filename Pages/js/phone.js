@@ -162,7 +162,8 @@ $('#btn_sendCode').click(() => {
                 url: '/../../api/phone.php?action=sendCode',
                 data: {
                     server: serverName,
-                    phone: phone
+                    phone: phone,
+                    token: token
                 }
             }
             const sendCodeRes = api(apiData)

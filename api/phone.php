@@ -15,6 +15,7 @@ if (isset($_GET['action'])){
 
             if (isset($post_data['phone'])){                
                 $phone = $post_data['phone'];
+                $verify_data['token'] = $post_data['token'];
                 $verify_result = tools::velify_token($verify_data);
 
                 if ($verify_result['success'] == true){
