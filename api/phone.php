@@ -205,6 +205,7 @@ if (isset($_GET['action'])){
                 MYPDO::$data = [
                     'ip' => $ip,
                     'token' => $token,
+                    'create_at_timestamp' => time(),
                     'create_at' => date("Y-m-d H:i:s")
                 ];
                 $update_id = MYPDO::save();
