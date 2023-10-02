@@ -116,7 +116,8 @@ class tools
 
     // 生成token
     public static function token(){
-        $token = md5(time().'bonus-register');
+        $token['time'] = time();
+        $token['token'] = md5(time().'bonus-register');
         return $token;
     }
 
@@ -131,6 +132,10 @@ class tools
             $ip=$_SERVER['REMOTE_ADDR'];
         }
         return $ip;
+    }
+
+    public static function valify_token($data){
+        // if ($data['token'] = )
     }
 
     public static function test()

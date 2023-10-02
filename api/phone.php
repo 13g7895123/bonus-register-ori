@@ -126,7 +126,8 @@ if (isset($_GET['action'])){
             echo json_encode($return);
             break;
         case 'token':
-            $token = tools::token();
+            $token_data = tools::token();
+            $token = $token_data['token'];
             $ip = tools::ip();
 
             MYPDO::$table = 'token_log';
@@ -143,6 +144,8 @@ if (isset($_GET['action'])){
             }else{
                 $return['success'] = false;
             }
+
+            $return['test'] = $token_data;
 
             echo json_encode($return);
             break;
