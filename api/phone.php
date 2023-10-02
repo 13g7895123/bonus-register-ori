@@ -18,6 +18,7 @@ if (isset($_GET['action'])){
                 $verify_result = tools::velify_token($verify_data);
 
                 if ($verify_result['success'] == true){
+                    $return['test'] = $verify_result['success'];
                     // 確認簡訊剩餘數量
                     $server_code = $post_data['server'];
                     MYPDO::$table = 'server_management';
