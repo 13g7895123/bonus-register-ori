@@ -156,7 +156,7 @@ class tools
             $return['msg'] = 'token錯誤';
         }
 
-        return json_encode($return);
+        return $return;
     }
 
     public static function test()
