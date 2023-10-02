@@ -33,9 +33,9 @@ if (isset($_GET['action'])){
 
                     if ($msg_num > 0){
                         // 發送驗證碼
-                        $validation_code = tools::validation_code();
-                        $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
-                        $sms_result = json_decode(tools::omgms($phone, $msg), true);
+                        // $validation_code = tools::validation_code();
+                        // $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
+                        // $sms_result = json_decode(tools::omgms($phone, $msg), true);
 
                         // =====驗證簡訊是否傳送成功=====
                         if ($sms_result['StatusCode']){     // 回傳狀態碼成功
@@ -78,6 +78,7 @@ if (isset($_GET['action'])){
                 $return['success'] = false;
                 $return['msg'] = '手機號碼有誤';
             }
+            $return['verify_result'] = $verify_result;
 
             echo json_encode($return);
             break;
