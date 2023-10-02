@@ -78,6 +78,63 @@ if (isset($_GET['action'])){
         case 'varify_validation_code':
             // 取得 POST DATA
             $post_data = common::post_data();
+
+            // 驗證token
+            if (isset($post_data['token'])){
+                $verify_data['token'] = $post_data['token'];
+                $verify_result = tools::velify_token($verify_data);
+
+                if ($verify_result['success']){
+                    if (isset($post_data['phone']) && isset($post_data['code'])){
+                        $phone = $post_data['phone'];
+                        $code = $post_data['code'];
+        
+                        MYPDO::$table = 'phone_validation';
+                        MYPDO::$where = [
+                            'phone' => $phone,
+                            'validation_code' => $code
+                        ];
+                        $result = MYPDO::first();
+        
+                        if (!empty($result)){   // 該資料存在，驗證時間
+        
+                            $timestamp = $result['validation_code_create_at_timestamp'];
+                            $time_diff = time() - $timestamp;
+                            $valid_minute = 1;
+        
+                            if ($time_diff > ($valid_minute * 60)){   // 驗證碼超過有效時限
+                                $return['success'] = false;
+                                $return['msg'] = '驗證碼已失效';
+                            }else{
+                                MYPDO::$table = 'phone_validation';
+                                MYPDO::$data = ['result' => 1];
+                                MYPDO::$where = [
+                                    'phone' => $phone,
+                                    'validation_code' => $code
+                                ];
+                                $update_id = MYPDO::save();
+        
+                                if ($update_id > 0){
+                                    $return['success'] = true;
+                                    $return['msg'] = '驗證成功';
+                                }else{
+                                    $return['success'] = false;
+                                    $return['msg'] = '驗證失敗';
+                                }
+                            }
+                        }else{
+                            $return['success'] = false;
+                            $return['msg'] = '資料不存在';
+                        }
+                    }
+                }else{
+                    $return['success'] = false;
+                    $return['msg'] = $verify_result['msg'];
+                }   /* End token verify */
+            }else{
+                $return['success'] = false;
+                $return['msg'] = '未存取token資料';
+            }   /* End isset token */
                       
             if (isset($post_data['phone']) && isset($post_data['code'])){
 
@@ -130,22 +187,35 @@ if (isset($_GET['action'])){
             $token = $token_data['token'];
             $ip = tools::ip();
 
-            MYPDO::$table = 'token_log';
-            MYPDO::$data = [
-                'ip' => $ip,
-                'token' => $token,
-                'create_at' => date("Y-m-d H:i:s")
-            ];
-            $insert_id = MYPDO::insert();
+            MYPDO::$table = 'token';
+            MYPDO::$where = ['ip' => $ip];
+            $result = MYPDO::first();
 
-            if ($insert_id > 0){
+            if (empty($result)){
+                MYPDO::$table = 'token';
+                MYPDO::$data = [
+                    'ip' => $ip,
+                    'token' => $token,
+                    'create_at_timestamp' => time(),
+                    'create_at' => date("Y-m-d H:i:s")
+                ];
+                $insert_id = MYPDO::insert();
+            }else{
+                MYPDO::$table = 'token';
+                MYPDO::$data = [
+                    'ip' => $ip,
+                    'token' => $token,
+                    'create_at' => date("Y-m-d H:i:s")
+                ];
+                $update_id = MYPDO::save();
+            }            
+
+            if ($insert_id > 0 || $update_id > 0){
                 $return['success'] = true;
                 $return['data'] = $token;
             }else{
                 $return['success'] = false;
             }
-
-            $return['test'] = $token_data;
 
             echo json_encode($return);
             break;

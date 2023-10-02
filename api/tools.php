@@ -116,9 +116,7 @@ class tools
 
     // 生成token
     public static function token(){
-        $token['time'] = time();
-        $token['test'] = substr(time(), 0, 4);
-        $token['token'] = md5(substr(time(), 0, 4).'bonus-register');
+        $token['token'] = md5(time().'bonus-register');
         return $token;
     }
 
@@ -135,8 +133,31 @@ class tools
         return $ip;
     }
 
-    public static function valify_token($data){
-        // if ($data['token'] = )
+    public static function velify_token($data){
+        
+        $ip = self::ip();
+
+        MYPDO::$table = 'token';
+        MYPDO::$where = ['ip' => $ip];
+        $result = MYPDO::first();
+        $token = $result['token'];
+
+        if ($data['token'] == $token){
+            $time = $result['create_at_timestamp'];
+            $now_time = time();
+            if ((($now_time - $time) / 60) > 10){
+                $return['success'] = false;
+                $return['msg'] = 'token已過期';
+            }else{
+                $return['success'] = true;
+            }
+        }else{
+            $return['success'] = false;
+            $return['msg'] = 'token錯誤';
+        }
+
+        echo json_encode($return);
+        return;
     }
 
     public static function test()
