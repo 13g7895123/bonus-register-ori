@@ -188,7 +188,7 @@ if (isset($_GET['action'])){
             }
             $return['verify_result'] = $verify_result;
             
-            echo json_encode($return);
+            echo $return;
             break;
         case 'token':
             $token_data = tools::token();
