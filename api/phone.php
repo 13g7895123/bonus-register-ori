@@ -15,59 +15,65 @@ if (isset($_GET['action'])){
 
             if (isset($post_data['phone'])){                
                 $phone = $post_data['phone'];
+                $verify_result = tools::velify_token($verify_data);
 
-                // 確認簡訊剩餘數量
-                $server_code = $post_data['server'];
-                MYPDO::$table = 'server_management';
-                MYPDO::$where = ['server_code_name' => $server_code];
-                $result = MYPDO::first();
-                $system_user_id = $result['system_user_id'];
-                MYPDO::$table = 'server_management';
-                MYPDO::$where = ['server_code_name' => $server_code];
-                $result = MYPDO::first();
-                $system_user_id = $result['system_user_id'];
-                // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
-                $msg_num = SYSAction::SQL_Data('system_user', 'id', $system_user_id, 'msg_num');
+                if ($verify_result['success']){
+                    // 確認簡訊剩餘數量
+                    $server_code = $post_data['server'];
+                    MYPDO::$table = 'server_management';
+                    MYPDO::$where = ['server_code_name' => $server_code];
+                    $result = MYPDO::first();
+                    $system_user_id = $result['system_user_id'];
+                    MYPDO::$table = 'server_management';
+                    MYPDO::$where = ['server_code_name' => $server_code];
+                    $result = MYPDO::first();
+                    $system_user_id = $result['system_user_id'];
+                    // $system_user_id = SYSAction::SQL_Data('server_management', '$server_code_name', $server_code, 'system_user_id');
+                    $msg_num = SYSAction::SQL_Data('system_user', 'id', $system_user_id, 'msg_num');
 
-                if ($msg_num > 0){
-                    // 發送驗證碼
-                    $validation_code = tools::validation_code();
-                    $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
-                    $sms_result = json_decode(tools::omgms($phone, $msg), true);
+                    if ($msg_num > 0){
+                        // 發送驗證碼
+                        $validation_code = tools::validation_code();
+                        $msg = "【遊戲帳號註冊】您的驗證碼為「".$validation_code."」，10分鐘內有效；驗證碼提供給他人可能導致帳號被盜，請勿泄露，謹防被騙。";
+                        $sms_result = json_decode(tools::omgms($phone, $msg), true);
 
-                    // =====驗證簡訊是否傳送成功=====
-                    if ($sms_result['StatusCode']){     // 回傳狀態碼成功
-                        // 驗證資料存入DB
-                        MYPDO::$table = 'phone_validation';
-                        MYPDO::$data = [
-                            'phone' => $phone,
-                            'validation_code' => $validation_code,
-                            'validation_code_create_at_timestamp' => time(),
-                            'destination' => $sms_result['Result']['Destination'],
-                            'status' => $sms_result['Result']['Status'],
-                            'desc' => $sms_result['Result']['Desc'],
-                            'messageId' => $sms_result['Result']['MessageId'],
-                        ];
-                        $insertId = MYPDO::insert();
-                        
-                        // 確認寫入成功
-                        if ($insertId > 0){
-                            $return['success'] = true;
-                            $return['msg_num'] = $msg_num;
-                            $return['msg'] = '認證碼已發送至手機';
+                        // =====驗證簡訊是否傳送成功=====
+                        if ($sms_result['StatusCode']){     // 回傳狀態碼成功
+                            // 驗證資料存入DB
+                            MYPDO::$table = 'phone_validation';
+                            MYPDO::$data = [
+                                'phone' => $phone,
+                                'validation_code' => $validation_code,
+                                'validation_code_create_at_timestamp' => time(),
+                                'destination' => $sms_result['Result']['Destination'],
+                                'status' => $sms_result['Result']['Status'],
+                                'desc' => $sms_result['Result']['Desc'],
+                                'messageId' => $sms_result['Result']['MessageId'],
+                            ];
+                            $insertId = MYPDO::insert();
+                            
+                            // 確認寫入成功
+                            if ($insertId > 0){
+                                $return['success'] = true;
+                                $return['msg_num'] = $msg_num;
+                                $return['msg'] = '認證碼已發送至手機';
+                            }else{
+                                $return['success'] = false;
+                                $return['msg'] = 'API傳送有誤';
+                            }
                         }else{
                             $return['success'] = false;
-                            $return['msg'] = 'API傳送有誤';
+                            $return['msg'] = '寫入資料庫錯誤';
                         }
                     }else{
                         $return['success'] = false;
-                        $return['msg'] = '寫入資料庫錯誤';
-                    }
+                        $return['msg'] = '簡訊發送異常，請通知管理員';
+                        $return['num'] = $msg_num;
+                    }   // End msg number check  
                 }else{
                     $return['success'] = false;
-                    $return['msg'] = '簡訊發送異常，請通知管理員';
-                    $return['num'] = $msg_num;
-                }   // End msg number check                
+                    $return['msg'] = $verify_result['msg'];
+                }   /* End token verify */              
             }else{
                 $return['success'] = false;
                 $return['msg'] = '手機號碼有誤';

@@ -145,7 +145,7 @@ class tools
         if ($data['token'] == $token){
             $time = $result['create_at_timestamp'];
             $now_time = time();
-            if ((($now_time - $time) / 60) > 10){
+            if ((($now_time - $time) / 60) > 1){
                 $return['success'] = false;
                 $return['msg'] = 'token已過期';
             }else{
