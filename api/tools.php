@@ -117,8 +117,8 @@ class tools
     // 生成token
     public static function token(){
         $token['time'] = time();
-        $token['test'] = substr(time(), 0, 3);
-        $token['token'] = md5(time().'bonus-register');
+        $token['test'] = substr(time(), 0, 4);
+        $token['token'] = md5(substr(time(), 0, 4).'bonus-register');
         return $token;
     }
 
