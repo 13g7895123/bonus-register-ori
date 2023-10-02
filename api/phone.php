@@ -185,7 +185,8 @@ if (isset($_GET['action'])){
                     $return['msg'] = '資料不存在';
                 }
             }
-
+            $return['verify_result'] = $verify_result;
+            
             echo json_encode($return);
             break;
         case 'token':
