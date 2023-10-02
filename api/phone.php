@@ -216,6 +216,8 @@ if (isset($_GET['action'])){
             }else{
                 $return['success'] = false;
             }
+            $return['ins'] = $insert_id;
+            $return['upd'] = $update_id;
 
             echo json_encode($return);
             break;
