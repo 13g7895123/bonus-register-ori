@@ -17,7 +17,7 @@ if (isset($_GET['action'])){
                 $phone = $post_data['phone'];
                 $verify_result = tools::velify_token($verify_data);
 
-                if ($verify_result['success']){
+                if ($verify_result['success'] == true){
                     // 確認簡訊剩餘數量
                     $server_code = $post_data['server'];
                     MYPDO::$table = 'server_management';
