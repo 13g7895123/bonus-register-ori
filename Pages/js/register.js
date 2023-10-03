@@ -92,13 +92,14 @@ $('#btn-submit').click(() => {
             if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
                 if (password == checkPassword){
                     const apiData = {
-                        url: `/../../api/register.php?action=register&token=${token}`,
+                        url: '/../../api/register.php?action=register',
                         data: {
                             server: serverName,
                             phone: phone,
                             account: account,
                             password: password,
-                            birthday: birthday
+                            birthday: birthday,
+                            token: token
                         }
                     }
                     const response = api(apiData)
