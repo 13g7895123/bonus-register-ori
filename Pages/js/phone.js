@@ -19,6 +19,7 @@ let alertData = { type: 0, msg: '' }
  * 按鈕 - 送出
 */
 $('#btn_submit').click(() => {
+    console.log(token);
     const phone = $('#inp_phone').val()
     const url = `${registerUrl}&phone=${phone}`
     const validationCode = $('#inp_validationCode').val()
