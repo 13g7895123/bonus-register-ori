@@ -112,7 +112,7 @@ $('#btn-submit').click(() => {
                         //     $(location).attr('href', phoneUrl);
                         // }, 3000)
                     }else{
-                        alertData.msg = '註冊失敗'
+                        alertData.msg = response.msg
                         alertMsg(alertData)
                     }
                 }else{
