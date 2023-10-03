@@ -40,7 +40,7 @@ $('#btn_submit').click(() => {
                 const varifyRes = api(apiData)
                 
                 if (varifyRes.success){
-                    alertData.type = 0
+                    alertData.type = 1
                     alertData.msg = varifyRes.msg
                     alertMsg(alertData)
                     setTimeout(() => {
