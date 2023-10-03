@@ -144,50 +144,7 @@ if (isset($_GET['action'])){
                 $return['success'] = false;
                 $return['msg'] = '未存取token資料';
             }   /* End isset token */
-                      
-            if (isset($post_data['phone']) && isset($post_data['code'])){
-
-                $phone = $post_data['phone'];
-                $code = $post_data['code'];
-
-                MYPDO::$table = 'phone_validation';
-                MYPDO::$where = [
-                    'phone' => $phone,
-                    'validation_code' => $code
-                ];
-                $result = MYPDO::first();
-
-                if (!empty($result)){   // 該資料存在，驗證時間
-
-                    $timestamp = $result['validation_code_create_at_timestamp'];
-                    $time_diff = time() - $timestamp;
-                    $valid_minute = 1;
-
-                    if ($time_diff > ($valid_minute * 60)){   // 驗證碼超過有效時限
-                        $return['success'] = false;
-                        $return['msg'] = '驗證碼已失效';
-                    }else{
-                        MYPDO::$table = 'phone_validation';
-                        MYPDO::$data = ['result' => 1];
-                        MYPDO::$where = [
-                            'phone' => $phone,
-                            'validation_code' => $code
-                        ];
-                        $update_id = MYPDO::save();
-
-                        if ($update_id > 0){
-                            $return['success'] = true;
-                            $return['msg'] = '驗證成功';
-                        }else{
-                            $return['success'] = false;
-                            $return['msg'] = '驗證失敗';
-                        }
-                    }
-                }else{
-                    $return['success'] = false;
-                    $return['msg'] = '資料不存在';
-                }
-            }
+            
             $return['verify_result'] = $verify_result;
             
             echo $return;
