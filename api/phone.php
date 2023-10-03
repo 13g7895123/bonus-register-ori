@@ -129,6 +129,7 @@ if (isset($_GET['action'])){
                                 }else{
                                     $return['success'] = false;
                                     $return['msg'] = '驗證失敗';
+                                    $return['code'] = $code;
                                 }
                             }
                         }else{
@@ -144,8 +145,6 @@ if (isset($_GET['action'])){
                 $return['success'] = false;
                 $return['msg'] = '未存取token資料';
             }   /* End isset token */
-            
-            $return['verify_result'] = $verify_result;
             
             echo json_encode($return);
             break;
