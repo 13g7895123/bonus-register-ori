@@ -1,4 +1,4 @@
-const { serverName, phone } = urlParam()
+const { serverName, phone, token } = urlParam()
 let serverData = getServerData(serverName)
 const imgDomain = 'http://missa.mercylife.cc/'
 serverData.domain = imgDomain
@@ -92,7 +92,7 @@ $('#btn-submit').click(() => {
             if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
                 if (password == checkPassword){
                     const apiData = {
-                        url: '/../../api/register.php?action=register',
+                        url: `/../../api/register.php?action=register&token=${token}`,
                         data: {
                             server: serverName,
                             phone: phone,
@@ -145,9 +145,11 @@ function urlParam() {
     const urlParams = new URLSearchParams(window.location.search);
     const serverName = urlParams.get('sn')   // server name
     const phone = urlParams.get('phone')
+    const token = urlParams.get('token')
     const param = {
         serverName: serverName,
-        phone: phone
+        phone: phone,
+        token: token
     }
     return param
 }

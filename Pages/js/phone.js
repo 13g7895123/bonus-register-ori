@@ -189,7 +189,7 @@ $('#btn_sendCode').click(() => {
 })
 
 const alertMsg = data => {
-    let icon = (data.type == 1) ? 'success' : 'error'
+    let icon = (data.type == 0) ? 'success' : 'error'
     const openAlertData = { 
         icon: icon,
         text: data.msg,
