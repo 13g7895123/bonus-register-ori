@@ -83,6 +83,7 @@ if (isset($_GET['action'])){
                                 $return['birthday_type'] = gettype($birthday);
                                 $return['now_num'] = $now_num;
                                 $return['max_num'] = $max_num;
+                                $return['results'] = $results;
                             }else{
                                 $return['success'] = false;
                                 $return['msg'] = '資料寫入有誤，請重新確認';
