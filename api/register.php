@@ -53,7 +53,7 @@ if (isset($_GET['action'])){
                         /* 驗證伺服器可註冊數量 */
                         MYPDO::$table = 'player_user';
                         MYPDO::$where = [
-                            'id' => $server_id,
+                            'server_id' => $server_id,
                             'phone' => $phone
                         ];
                         $results = MYPDO::select();
