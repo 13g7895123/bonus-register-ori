@@ -48,29 +48,46 @@ if (isset($_GET['action'])){
     
                         $server_id = SYSAction::SQL_Data('server', 'code_name', $server, 'id');
                         $server_name = SYSAction::SQL_Data('server', 'code_name', $server, 'name');
-    
+                        $max_num = SYSAction::SQL_Data('server', 'code_name', $server, 'max_num');
+
+                        /* 驗證伺服器可註冊數量 */
                         MYPDO::$table = 'player_user';
-                        MYPDO::$data = [
-                            'account' => $account,
-                            'password' => $password,
-                            'phone' => $phone,
-                            'birthday' => $birthday,
-                            'server_id' => $server_id,
-                            'server_name' => $server_name,
-                            'server_code_name' => $server,
-                            'switch' => 1,
+                        MYPDO::$where = [
+                            'id' => $server_id,
+                            'phone' => $phone
                         ];
-                        $insert_id = MYPDO::insert();
-        
-                        if ($insert_id > 0){
-                            $return['success'] = true;
-                            $return['msg'] = '註冊完成';
-                            $return['birthday'] = $birthday;
-                            $return['birthday_type'] = gettype($birthday);
-                        }else{
+                        $results = MYPDO::select();
+                        $now_num = count($results);
+
+                        if ($now_num >= $max_num){
                             $return['success'] = false;
-                            $return['msg'] = '資料寫入有誤，請重新確認';
-                        }
+                            $return['msg'] = '超過可註冊數量';
+                        }else{
+                            MYPDO::$table = 'player_user';
+                            MYPDO::$data = [
+                                'account' => $account,
+                                'password' => $password,
+                                'phone' => $phone,
+                                'birthday' => $birthday,
+                                'server_id' => $server_id,
+                                'server_name' => $server_name,
+                                'server_code_name' => $server,
+                                'switch' => 1,
+                            ];
+                            $insert_id = MYPDO::insert();
+            
+                            if ($insert_id > 0){
+                                $return['success'] = true;
+                                $return['msg'] = '註冊完成';
+                                $return['birthday'] = $birthday;
+                                $return['birthday_type'] = gettype($birthday);
+                                $return['now_num'] = $now_num;
+                                $return['max_num'] = $max_num;
+                            }else{
+                                $return['success'] = false;
+                                $return['msg'] = '資料寫入有誤，請重新確認';
+                            }
+                        }   /* End 驗證伺服器可註冊數量 */
                     }
                 }else{
                     $return['success'] = false;
