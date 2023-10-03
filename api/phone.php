@@ -109,7 +109,7 @@ if (isset($_GET['action'])){
         
                             $timestamp = $result['validation_code_create_at_timestamp'];
                             $time_diff = time() - $timestamp;
-                            $valid_minute = 3;
+                            $valid_minute = 5;
         
                             if ($time_diff > ($valid_minute * 60)){   // 驗證碼超過有效時限
                                 $return['success'] = false;
