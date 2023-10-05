@@ -22,7 +22,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>帳號申請</title>
+    <title>Game Account</title>
 
     <link href='./dist/output.css' rel='stylesheet'> 
     <link rel="stylesheet" href="./assets/plugin/select2.min.css" />
