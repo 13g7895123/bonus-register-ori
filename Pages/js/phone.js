@@ -1,3 +1,5 @@
+import { api } from './common'
+
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
@@ -77,7 +79,7 @@ function urlParam() {
 
 // 取得伺服器名稱
 function getServerData (data){
-    const apiUrl = `http://170.187.229.132:9091/api/bonus-register/common.php?action=server_name`
+    const apiUrl = `${api}common.php?action=server_name`
     const apiData = {
         url: apiUrl,
         data: { server: data }
