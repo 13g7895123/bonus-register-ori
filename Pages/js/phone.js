@@ -1,5 +1,4 @@
 const serverName = urlParam()
-alert(123)
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
     const imgDomain = 'http://missa.mercylife.cc/'
