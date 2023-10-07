@@ -34,7 +34,7 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
 </head>
 <!-- <body class='h-[100vh] relative bg-slate-800 p-0'> -->
 <body class='h-screen w-screen relative bg-slate-800 p-0'>
-    <div class='h-screen w-screen relative flex flex-col justify-center'>
+    <div class='h-full w-screen relative flex flex-col justify-center'>
         <!-- <div id='mask' class='w-full h-full hidden bg-slate-800 opacity-30 absolute top-0 z-20'></div> -->
         <!-- 顯示畫面 -->
         <?php include('Pages/' . $NOW_Page . '.php'); ?>  
