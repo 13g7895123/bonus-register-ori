@@ -45,7 +45,6 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <script src="./assets/plugin/select2.min.js"></script>
     <script>
         const ajax_url = "<?php if ($NOW_Page) echo './Pages/ajax/' . $NOW_Page . '.php'; ?>";
-        // var apiUrl = 'http://170.187.229.132:9091/api/bonus-register/'
     </script>
     <script type='module' src='./Pages/js/<?php echo $NOW_Page ?>.js'></script>
     <!-- Fontawesome -->

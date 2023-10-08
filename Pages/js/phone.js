@@ -1,9 +1,8 @@
-import { apiUrl } from './common.js'
+import { apiUrl, imgDomain } from './common.js'
 
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
-    const imgDomain = 'http://missa.mercylife.cc/'
     let serverData = serverDataRes.data
     serverData.domain = imgDomain
     renderServer(serverData)    // 更新標題
