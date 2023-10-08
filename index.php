@@ -45,17 +45,11 @@ if (BaseWork::_get('page') != "" && file_exists('Pages/' . BaseWork::_get('page'
     <script src="./assets/plugin/select2.min.js"></script>
     <script>
         const ajax_url = "<?php if ($NOW_Page) echo './Pages/ajax/' . $NOW_Page . '.php'; ?>";
-        // const ajax_token = "<?php echo $_SESSION['Server_token']; ?>"
+        const apiUrl = 'http://170.187.229.132:9091/api/bonus-register/'
     </script>
     <script type='module' src='./Pages/js/<?php echo $NOW_Page ?>.js'></script>
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/d804364582.js" crossorigin="anonymous"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <!-- sweet alert -->
-    <!-- <script src="./assets/plugin/sweetAlert/sweetalert2.all.min.js"></script> -->
-    <!-- <script src="./assets/plugin/beAlert/jquery-3.1.1.min.js"></script> -->
-    <!-- <script src="BeAlert.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
 </body>
 </html>
