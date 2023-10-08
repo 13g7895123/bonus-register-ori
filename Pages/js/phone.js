@@ -12,6 +12,8 @@ if (tokenDataRes.success){
     token = tokenDataRes.data;
 }
 
+alert(apiUrl)
+
 const registerUrl = `?page=register&sn=${serverName}&token=${token}`   // 註冊網址
 let alertData = { type: 0, msg: '' }
 
