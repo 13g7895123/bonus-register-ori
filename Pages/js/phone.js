@@ -1,4 +1,4 @@
-import { apiUrl, urlParam, getServerData, imgDomain } from './common.js'
+import { apiUrl, urlParam, getServerData, getTokenData, imgDomain } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
@@ -6,7 +6,7 @@ let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
     let serverData = serverDataRes.data
     serverData.domain = imgDomain
-    renderServer(serverData)    // 更新標題
+    renderServer(serverData)
 }
 /* End 渲染伺服器名字 */
 
@@ -73,18 +73,6 @@ function renderServer(data){
     $('#bg').css('background-image', `url(${data.domain}${data.bg})`)   // 背景圖
     $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
 }
-
-// 取得token
-function getTokenData (){
-    const apiUrl = `/../../api/phone.php?action=token`
-    const apiData = {
-        url: apiUrl,
-    }
-    const tokenData = api(apiData)
-    return tokenData
-}
-
-
 
 //全域變數 紀錄驗證碼
 let code = "";

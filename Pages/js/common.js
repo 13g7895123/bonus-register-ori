@@ -4,19 +4,31 @@ export const imgDomain = 'http://missa.mercylife.cc/'
 /* End 通用變數定義 */
 
 /* Api網址 */
-const serverApiUrl = `${apiUrl}common.php?action=server_name`           // server
+const serverUrl = `${apiUrl}common.php?action=server_name`           // server
+const tokenUrl = `${apiUrl}phone.php?action=token`           // server
 /* End Api網址 */
 
 /* 伺服器名稱 */
 export const getServerData = data => {
     const apiData = {
-        url: serverApiUrl,
+        url: serverUrl,
         data: { server: data }
     }
     const serverData = api(apiData)
     return serverData
 }
 /* End 伺服器名稱 */
+
+/* Token */
+export const getTokenData = () => {
+    const apiUrl = tokenUrl
+    const apiData = {
+        url: apiUrl,
+    }
+    const tokenData = api(apiData)
+    return tokenData
+}
+/* End Token */
 
 /* 網址參數 */
 export const urlParam = () => {
