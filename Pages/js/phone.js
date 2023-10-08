@@ -79,9 +79,9 @@ function urlParam() {
 
 // 取得伺服器名稱
 function getServerData (data){
-    const apiUrl = `${apiUrl}common.php?action=server_name`
+    const serverApiUrl = `${apiUrl}common.php?action=server_name`
     const apiData = {
-        url: apiUrl,
+        url: serverApiUrl,
         data: { server: data }
     }
     const serverData = api(apiData)
