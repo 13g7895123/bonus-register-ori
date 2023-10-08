@@ -13,6 +13,7 @@ if (serverDataRes.success){
 /* 取得Token */
 let token = ''
 const tokenDataRes = getTokenData()
+console.log(tokenDataRes);
 if (tokenDataRes.success){
     token = tokenDataRes.data;
 }
