@@ -26,6 +26,7 @@ export const getTokenData = () => {
         url: apiUrl,
     }
     const tokenData = api(apiData)
+    console.log(tokenData);
     return tokenData
 }
 /* End Token */
