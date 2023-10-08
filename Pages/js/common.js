@@ -8,7 +8,7 @@ const serverApiUrl = `${apiUrl}common.php?action=server_name`           // serve
 /* End Api網址 */
 
 /* 伺服器名稱 */
-function getServerData (data){
+export const getServerData = data => {
     const apiData = {
         url: serverApiUrl,
         data: { server: data }
