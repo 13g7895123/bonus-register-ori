@@ -1,4 +1,4 @@
-import { urlParam, apiUrl, imgDomain } from './common.js'
+import { apiUrl, imgDomain } from './common.js'
 
 /* 定義變數 */
 const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
