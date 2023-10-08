@@ -1,5 +1,9 @@
-import { apiUrl, imgDomain } from './common.js'
+import { urlParam, getServerData, apiUrl, imgDomain } from './common.js'
 
+/* 定義變數 */
+const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
+
+/* 渲染伺服器名字 */
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
@@ -7,22 +11,20 @@ if (serverDataRes.success){
     serverData.domain = imgDomain
     renderServer(serverData)    // 更新標題
 }
+/* End 渲染伺服器名字 */
+
 let token = ''
 let tokenDataRes = getTokenData()
 if (tokenDataRes.success){
     token = tokenDataRes.data;
 }
 
-alert(apiUrl)
-
-const registerUrl = `?page=register&sn=${serverName}&token=${token}`   // 註冊網址
 let alertData = { type: 0, msg: '' }
 
 /*
  * 按鈕 - 送出
 */
 $('#btn_submit').click(() => {
-    console.log(token);
     const phone = $('#inp_phone').val()
     const url = `${registerUrl}&phone=${phone}`
     const validationCode = $('#inp_validationCode').val()
@@ -72,23 +74,6 @@ function renderServer(data){
     $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
 }
 
-function urlParam() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const serverName= urlParams.get('sn')   // server name
-    return serverName
-}
-
-// 取得伺服器名稱
-function getServerData (data){
-    const serverApiUrl = `${apiUrl}common.php?action=server_name`
-    const apiData = {
-        url: serverApiUrl,
-        data: { server: data }
-    }
-    const serverData = api(apiData)
-    return serverData
-}
-
 // 取得token
 function getTokenData (){
     const apiUrl = `/../../api/phone.php?action=token`
@@ -99,20 +84,7 @@ function getTokenData (){
     return tokenData
 }
 
-function api (data){
-    let responseData
-    $.ajax({
-        type: "post",
-        url: data.url,
-        data: data.data,
-        dataType: "JSON",
-        async: false,
-        success: function (response) {
-            responseData = response
-        }
-    });
-    return responseData
-}
+
 
 //全域變數 紀錄驗證碼
 let code = "";
@@ -191,16 +163,5 @@ $('#btn_sendCode').click(() => {
     }
 })
 
-const alertMsg = data => {
-    let icon = (data.type == 1) ? 'success' : 'error'
-    const openAlertData = { 
-        icon: icon,
-        text: data.msg,
-    }
-    openAlert(openAlertData)
-}
 
-const goPage = url => {
-    $(location).attr('href', url);
-}
 
