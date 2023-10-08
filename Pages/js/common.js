@@ -19,7 +19,7 @@ function getServerData (data){
 /* End 伺服器名稱 */
 
 /* 網址參數 */
-function urlParam() {
+export const urlParam = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const serverName= urlParams.get('sn')   // server name
     return serverName

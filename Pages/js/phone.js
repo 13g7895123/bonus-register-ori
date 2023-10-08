@@ -1,4 +1,4 @@
-import { apiUrl, imgDomain } from './common.js'
+import { apiUrl, urlParam, imgDomain } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
