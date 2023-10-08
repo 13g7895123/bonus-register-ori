@@ -1,8 +1,5 @@
 import { apiUrl, imgDomain } from './common.js'
 
-/* 定義變數 */
-const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
-
 /* 渲染伺服器名字 */
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
@@ -12,6 +9,9 @@ if (serverDataRes.success){
     renderServer(serverData)    // 更新標題
 }
 /* End 渲染伺服器名字 */
+
+/* 定義變數 */
+const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
 
 let token = ''
 let tokenDataRes = getTokenData()
