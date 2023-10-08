@@ -1,3 +1,5 @@
+import { apiUrl } from './common.js'
+
 const serverName = urlParam()
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){

@@ -1,1 +1,1 @@
-export const api = 'http://170.187.229.132:9091/api/bonus-register/'
+export const apiUrl = 'http://170.187.229.132:9091/api/bonus-register/'
