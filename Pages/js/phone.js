@@ -1,4 +1,4 @@
-import { apiUrl, urlParam, getServerData, getTokenData, imgDomain } from './common.js'
+import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
@@ -10,15 +10,16 @@ if (serverDataRes.success){
 }
 /* End 渲染伺服器名字 */
 
-/* 定義變數 */
-const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
-
+/* 取得Token */
 let token = ''
 let tokenDataRes = getTokenData()
 if (tokenDataRes.success){
     token = tokenDataRes.data;
 }
+/* End 取得Token */
 
+/* 定義變數 */
+const registerUrl = `?page=register&sn=${serverName}&token=${token}`    // 註冊網址
 let alertData = { type: 0, msg: '' }
 
 /*
