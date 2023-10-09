@@ -1,8 +1,15 @@
-const { serverName, phone, token } = urlParam()
-let serverData = getServerData(serverName)
-const imgDomain = 'http://missa.mercylife.cc/'
-serverData.domain = imgDomain
-renderServer(serverData)    // 更新標題
+import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
+import { api, alertMsg, goPage } from './common.js'
+
+/* 渲染伺服器名字 */
+const serverName = urlParam()
+let serverDataRes = getServerData(serverName)
+if (serverDataRes.success){
+    let serverData = serverDataRes.data
+    serverData.domain = imgDomain
+    renderServer(serverData)
+}
+/* End 渲染伺服器名字 */
 
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 let alertData = { type: 0, msg: '' }

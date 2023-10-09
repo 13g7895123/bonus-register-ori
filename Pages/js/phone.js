@@ -1,5 +1,6 @@
-import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
+import { urlParam, getServerData, getTokenData, imgDomain } from './common'
 import { api, alertMsg, goPage } from './common.js'
+import { varifyValidationCodeUrl } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
@@ -14,7 +15,6 @@ if (serverDataRes.success){
 /* 取得Token */
 let token = ''
 const tokenDataRes = getTokenData()
-console.log(tokenDataRes);
 if (tokenDataRes.success){
     token = tokenDataRes.data;
 }
@@ -32,7 +32,7 @@ $('#btn_submit').click(() => {
     const url = `${registerUrl}&phone=${phone}`
     const validationCode = $('#inp_validationCode').val()
     const code = $('#inp_code').val()   // 認證碼
-    const apiUrl = `/../../api/phone.php?action=varify_validation_code`
+    const apiUrl = varifyValidationCodeUrl
 
     if (phone != ''){
         if (validationCode != ''){

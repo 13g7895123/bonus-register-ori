@@ -4,8 +4,9 @@ export const imgDomain = 'http://missa.mercylife.cc/'
 /* End 通用變數定義 */
 
 /* Api網址 */
-const serverUrl = `${apiUrl}common.php?action=server_name`           // server
-const tokenUrl = `${apiUrl}phone.php?action=token`           // server
+const serverUrl = `${apiUrl}common.php?action=server_name`                          // server
+const tokenUrl = `${apiUrl}phone.php?action=token`                                  // token
+const varifyValidationCodeUrl = `${apiUrl}phone.php?action=varify_validation_code`  // 驗證token
 /* End Api網址 */
 
 /* 伺服器名稱 */
