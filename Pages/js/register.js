@@ -23,6 +23,69 @@ $("#datepicker").datepicker({
 });
 /* End 綁定日期選擇器 */
 
+$('#btn-submit').click(() => {
+    const columnValidation = columnsValidation()
+    if (columnValidation == 1){
+        const account = $('#inp_account').val()
+        const password = $('#inp_password').val()
+        const checkPassword = $('#inp_checkPassword').val()
+        const birthday = $("#datepicker").val()
+        const validationCode = $('#inp_validationCode').val()
+
+        if (validationCode == code){
+            if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
+                if (password == checkPassword){
+                    const apiData = {
+                        url: '/../../api/register.php?action=register',
+                        data: {
+                            server: serverName,
+                            phone: phone,
+                            account: account,
+                            password: password,
+                            birthday: birthday,
+                            token: token
+                        }
+                    }
+                    const response = api(apiData)
+                    if (response.success){
+                        alertData.type = 1
+                        alertData.msg = '註冊成功'
+                        alertMsg(alertData)
+                        // 跳轉頁面
+                        setTimeout(() => {
+                            $(location).attr('href', phoneUrl);
+                        }, 3000)
+                    }else{
+                        alertData.msg = response.msg
+                        alertMsg(alertData)
+                    }
+                }else{
+                    alertData.msg = '密碼不相符'
+                    alertMsg(alertData)
+                }   // End password check
+            }else{
+                alertData.msg = '請填入正確的資料'
+                alertMsg(alertData)
+            }  // End column not empty
+        }else{
+            alertData.msg = '驗證碼錯誤'
+            alertMsg(alertData)
+        }   // End validation code check
+    }else{
+        alertData.msg = '請依照欄位指示填寫正確資料'
+        alertMsg(alertData)
+    }   // End validation columns
+})
+
+$('#btn-cancel-register').click(() => {
+    $(location).attr('href', phoneUrl);
+})
+
+function renderServer(data){
+    $('#bg').css('background-image', `url(${data.domain}${data.bg})`)   // 背景圖
+    $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
+}
+
 /* 欄位輸入驗證 */
 /* 輸入帳號 */
 $('#inp_account').blur(() => {
@@ -89,69 +152,6 @@ const columnsValidation = () => {
     return result
 }
 /* End 欄位輸入驗證 */
-
-$('#btn-submit').click(() => {
-    const columnValidation = columnsValidation()
-    if (columnValidation == 1){
-        const account = $('#inp_account').val()
-        const password = $('#inp_password').val()
-        const checkPassword = $('#inp_checkPassword').val()
-        const birthday = $("#datepicker").val()
-        const validationCode = $('#inp_validationCode').val()
-
-        if (validationCode == code){
-            if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
-                if (password == checkPassword){
-                    const apiData = {
-                        url: '/../../api/register.php?action=register',
-                        data: {
-                            server: serverName,
-                            phone: phone,
-                            account: account,
-                            password: password,
-                            birthday: birthday,
-                            token: token
-                        }
-                    }
-                    const response = api(apiData)
-                    if (response.success){
-                        alertData.type = 1
-                        alertData.msg = '註冊成功'
-                        alertMsg(alertData)
-                        // 跳轉頁面
-                        setTimeout(() => {
-                            $(location).attr('href', phoneUrl);
-                        }, 3000)
-                    }else{
-                        alertData.msg = response.msg
-                        alertMsg(alertData)
-                    }
-                }else{
-                    alertData.msg = '密碼不相符'
-                    alertMsg(alertData)
-                }   // End password check
-            }else{
-                alertData.msg = '請填入正確的資料'
-                alertMsg(alertData)
-            }  // End column not empty
-        }else{
-            alertData.msg = '驗證碼錯誤'
-            alertMsg(alertData)
-        }   // End validation code check
-    }else{
-        alertData.msg = '請依照欄位指示填寫正確資料'
-        alertMsg(alertData)
-    }   // End validation columns
-})
-
-$('#btn-cancel-register').click(() => {
-    $(location).attr('href', phoneUrl);
-})
-
-function renderServer(data){
-    $('#bg').css('background-image', `url(${data.domain}${data.bg})`)   // 背景圖
-    $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
-}
 
 //全域變數 紀錄驗證碼
 let code = "";
