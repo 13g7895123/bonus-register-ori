@@ -1,6 +1,6 @@
-import { urlParam, getServerData, getTokenData, imgDomain } from './common'
-import { api, alertMsg, goPage } from './common'
-import { varifyValidationCodeUrl } from './common'
+import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
+import { api, alertMsg, goPage } from './common.js'
+import { varifyValidationCodeUrl } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
