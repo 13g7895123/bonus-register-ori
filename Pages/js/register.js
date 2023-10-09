@@ -11,13 +11,17 @@ if (serverDataRes.success){
 }
 /* End 渲染伺服器名字 */
 
+/* 參數定義 */
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 let alertData = { type: 0, msg: '' }
+/* End 參數定義 */
 
+/* 綁定日期選擇器 */
 $("#datepicker").datepicker({ 
     dateFormat: 'yy/mm/dd',
     maxDate: 0
 });
+/* End 綁定日期選擇器 */
 
 /* 欄位輸入驗證 */
 /* 輸入帳號 */
