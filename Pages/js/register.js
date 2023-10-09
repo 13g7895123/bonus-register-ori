@@ -15,6 +15,7 @@ if (serverDataRes.success){
 /* 參數定義 */
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 const phone = urlParam('phone')
+const token = urlParam('token')
 let alertData = { type: 0, msg: '' }
 /* End 參數定義 */
 
