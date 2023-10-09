@@ -3,7 +3,7 @@ import { api, alertMsg, goPage } from './common.js'
 import { sendCodeUrl, varifyValidationCodeUrl } from './common.js'
 
 /* 渲染伺服器名字 */
-const serverName = urlParam()
+const serverName = urlParam('sn')
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
     let serverData = serverDataRes.data

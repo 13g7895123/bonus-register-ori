@@ -35,10 +35,10 @@ export const getTokenData = () => {
 /* End Token */
 
 /* 網址參數 */
-export const urlParam = () => {
+export const urlParam = (param) => {
     const urlParams = new URLSearchParams(window.location.search);
-    const serverName= urlParams.get('sn')   // server name
-    return serverName
+    const paramValue = urlParams.get(param)   // server name
+    return paramValue
 }
 /* End 網址參數 */
 

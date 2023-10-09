@@ -3,7 +3,7 @@ import { api, alertMsg, goPage } from './common.js'
 import { registerUrl } from './common.js'
 
 /* 渲染伺服器名字 */
-const serverName = urlParam()
+const serverName = urlParam('sn')
 let serverDataRes = getServerData(serverName)
 if (serverDataRes.success){
     let serverData = serverDataRes.data
@@ -14,6 +14,7 @@ if (serverDataRes.success){
 
 /* 參數定義 */
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
+const phone = urlParam('phone')
 let alertData = { type: 0, msg: '' }
 /* End 參數定義 */
 
