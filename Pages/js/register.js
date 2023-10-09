@@ -1,5 +1,6 @@
 import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
 import { api, alertMsg, goPage } from './common.js'
+import { registerUrl } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
@@ -36,7 +37,7 @@ $('#btn-submit').click(() => {
             if (account != '' &&  password != '' && checkPassword != '' && birthday != ''){
                 if (password == checkPassword){
                     const apiData = {
-                        url: '/../../api/register.php?action=register',
+                        url: registerUrl,
                         data: {
                             server: serverName,
                             phone: phone,

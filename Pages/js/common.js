@@ -8,6 +8,7 @@ const serverUrl = `${apiUrl}common.php?action=server_name`                      
 const tokenUrl = `${apiUrl}phone.php?action=token`                                  // token
 export const sendCodeUrl = `${apiUrl}phone.php?action=sendCode`                     // 寄送驗證碼
 export const varifyValidationCodeUrl = `${apiUrl}phone.php?action=varify_validation_code`  // 驗證token
+export const registerUrl = `${apiUrl}register.php?action=register`  // 驗證token
 /* End Api網址 */
 
 /* 伺服器名稱 */
