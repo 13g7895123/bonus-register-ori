@@ -6,6 +6,7 @@ export const imgDomain = 'http://missa.mercylife.cc/'
 /* Api網址 */
 const serverUrl = `${apiUrl}common.php?action=server_name`                          // server
 const tokenUrl = `${apiUrl}phone.php?action=token`                                  // token
+export const sendCodeUrl = `${apiUrl}phone.php?action=sendCode`                     // 寄送驗證碼
 export const varifyValidationCodeUrl = `${apiUrl}phone.php?action=varify_validation_code`  // 驗證token
 /* End Api網址 */
 

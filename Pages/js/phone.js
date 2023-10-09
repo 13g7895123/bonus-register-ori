@@ -1,6 +1,6 @@
 import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
 import { api, alertMsg, goPage } from './common.js'
-import { varifyValidationCodeUrl } from './common.js'
+import { sendCodeUrl, varifyValidationCodeUrl } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
@@ -123,31 +123,36 @@ $('#btn_sendCode').click(() => {
     const validationCode = $('#inp_validationCode').val()
 
     if (phone != ''){
-        if (validationCode == code){
-            // 發送認證碼
-            const apiData = {
-                url: '/../../api/phone.php?action=sendCode',
-                data: {
-                    server: serverName,
-                    phone: phone,
-                    token: token
+        if (validationCode != ''){
+            if (validationCode == code){
+                // 發送認證碼
+                const apiData = {
+                    url: sendCodeUrl,
+                    data: {
+                        server: serverName,
+                        phone: phone,
+                        token: token
+                    }
                 }
-            }
-            const sendCodeRes = api(apiData)
-            if (sendCodeRes.success){
-                alertData.type = 1
-                alertData.msg = '認證碼發送成功'
-                alertMsg(alertData)
+                const sendCodeRes = api(apiData)
+                if (sendCodeRes.success){
+                    alertData.type = 1
+                    alertData.msg = '認證碼發送成功'
+                    alertMsg(alertData)
+                }else{
+                    alertData.type = 0
+                    alertData.msg = sendCodeRes.msg
+                    alertMsg(alertData)
+                }
             }else{
                 alertData.type = 0
-                alertData.msg = sendCodeRes.msg
+                alertData.msg = '驗證碼錯誤'
                 alertMsg(alertData)
             }
         }else{
-            alertData.type = 0
-            alertData.msg = '驗證碼錯誤'
+            alertData.msg = '請輸入驗證碼'
             alertMsg(alertData)
-        }
+        }        
     }else{
         alertData.msg = '請輸入手機號碼'
         alertMsg(alertData)
