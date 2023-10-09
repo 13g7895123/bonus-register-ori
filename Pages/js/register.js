@@ -153,47 +153,6 @@ function renderServer(data){
     $('#server_name').text(`【${data.name}】`)  // 伺服器名稱
 }
 
-function urlParam() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const serverName = urlParams.get('sn')   // server name
-    const phone = urlParams.get('phone')
-    const token = urlParams.get('token')
-    const param = {
-        serverName: serverName,
-        phone: phone,
-        token: token
-    }
-    return param
-}
-
-function getServerData (data){
-    const apiData = {
-        url: '/../../api/common.php?action=server_name',
-        data: {
-            server: data
-        }
-    }
-    const serverData = api(apiData)
-    if (serverData.success){
-        return serverData.data
-    }
-}
-
-function api (data){
-    let responseData
-    $.ajax({
-        type: "post",
-        url: data.url,
-        data: data.data,
-        dataType: "JSON",
-        async: false,
-        success: function (response) {
-            responseData = response
-        }
-    });
-    return responseData
-}
-
 //全域變數 紀錄驗證碼
 let code = "";
 
@@ -226,12 +185,3 @@ function createCode(){
 }
 
 createCode()
-
-const alertMsg = data => {
-    let icon = (data.type == 1) ? 'success' : 'error'
-    const openAlertData = { 
-        icon: icon,
-        text: data.msg,
-    }
-    openAlert(openAlertData)
-}
