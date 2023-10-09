@@ -40,7 +40,7 @@ export const urlParam = () => {
 /* End 網址參數 */
 
 /* Ajax取得後端資料 */
-function api (data){
+export const api = (data) => {
     let responseData
     $.ajax({
         type: "post",
@@ -57,7 +57,7 @@ function api (data){
 /* End Ajax取得後端資料 */
 
 /* 提示訊息 */
-const alertMsg = data => {
+export const alertMsg = data => {
     let icon = (data.type == 1) ? 'success' : 'error'
     const openAlertData = { 
         icon: icon,
@@ -68,7 +68,7 @@ const alertMsg = data => {
 /* End 提示訊息 */
 
 /* 切換頁面 */
-const goPage = url => {
+export const goPage = url => {
     $(location).attr('href', url);
 }
 /* End 切換頁面 */

@@ -1,4 +1,5 @@
 import { urlParam, getServerData, getTokenData, imgDomain } from './common.js'
+import { api, alertMsg, goPage } from './common.js'
 
 /* 渲染伺服器名字 */
 const serverName = urlParam()
