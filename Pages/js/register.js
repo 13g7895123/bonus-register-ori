@@ -15,7 +15,6 @@ if (serverDataRes.success){
 /* 參數定義 */
 const phoneUrl = `?page=phone&sn=${serverName}`   // 手機驗證網址
 const phone = urlParam('phone')
-console.log(phone);
 let alertData = { type: 0, msg: '' }
 /* End 參數定義 */
 
