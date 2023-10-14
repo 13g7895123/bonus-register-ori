@@ -2,7 +2,7 @@
 // const apiDomain = 'http://170.187.229.132:9091/'
 const apiDomain = 'https://api.mercylife.cc/'
 export const apiUrl = `${apiDomain}api/bonus-register/`
-export const imgDomain = 'https://tools.mercylife.cc/'
+export const imgDomain = 'https://missa.mercylife.cc/'
 /* End 通用變數定義 */
 
 /* Api網址 */
